@@ -1,0 +1,17 @@
+{
+  "app_id": 9000,
+  "state": "active",
+  "title": "My Awesome E-Com Plus App",
+  "slug": "my-app",
+  "version": "0.0.1",
+  "type": "external",
+  "authentication": true,
+  "auth_callback_uri": "https://my-app/ecom/auth-callback",
+  "auth_scope": {
+    "procedures": [
+      "POST"
+    ]
+  },
+  "admin_settings": {
+  }
+}
