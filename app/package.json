@@ -6,7 +6,7 @@
   "main": "main.js",
   "dependencies": {
     "console-files": "2.x",
-    "ecomplus-app-sdk": "1.x",
+    "ecomplus-app-sdk": "^1.11.0-beta",
     "express": "4.x"
   },
   "devDependencies": {
