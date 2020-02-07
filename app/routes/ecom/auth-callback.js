@@ -2,15 +2,19 @@
 
 // log on files
 const logger = require('console-files')
-
-module.exports = appSdk => {
+const { ecomAuth } = require('ecomplus-app-sdk')
+module.exports = () => {
   return (req, res) => {
     const { storeId } = req
+    const procedures = require('./../../lib/store-api/procedures')
     // handle callback with E-Com Plus app SDK
     // https://github.com/ecomclub/ecomplus-app-sdk
-    appSdk.handleCallback(storeId, req.body)
-
+    ecomAuth.then(appSdk => {
+      appSdk.handleCallback(storeId, req.body)
       .then(({ isNew, authenticationId }) => {
+        if(isNew){
+          appSdk.saveProcedures(storeId, procedures)
+        }
         // authentication tokens were updated
         res.status(204)
         res.end()
@@ -28,5 +32,14 @@ module.exports = appSdk => {
           message
         })
       })
+    })
+    
+    ecomAuth.catch(err => {
+      logger.error(err)
+      setTimeout(() => {
+        process.exit(1)
+      }, 1100)
+    })
+    
   }
 }

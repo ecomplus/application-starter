@@ -7,7 +7,9 @@
   "dependencies": {
     "console-files": "2.x",
     "ecomplus-app-sdk": "1.x",
-    "express": "4.x"
+    "express": "4.x",
+    "firebase-admin": "^8.9.2",
+    "firebase-functions": "^3.3.0"
   },
   "devDependencies": {
     "standard": "*"
