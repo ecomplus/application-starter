@@ -19,10 +19,7 @@ module.exports = () => {
         })
 
         .catch(err => {
-          if (typeof err.code === 'string' && !err.code.startsWith('SQLITE_CONSTRAINT')) {
-            // debug SQLite errors
-            console.error(err)
-          }
+          console.error(err)
           res.status(500)
           const { message } = err
           res.send({
