@@ -6,7 +6,7 @@
 const logger = require('console-files')
 // handle app authentication to Store API
 // https://github.com/ecomclub/ecomplus-app-sdk
-const { ecomAuth, ecomServerIps } = require('ecomplus-app-sdk')
+const { ecomServerIps } = require('ecomplus-app-sdk')
 
 // web server with Express
 const express = require('express')
@@ -14,6 +14,8 @@ const bodyParser = require('body-parser')
 const app = express()
 const router = express.Router()
 const port = process.env.PORT || 3000
+const functions = require("firebase-functions")
+const routes = './../routes'
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -42,29 +44,10 @@ app.use((req, res, next) => {
   next()
 })
 
-ecomAuth.then(appSdk => {
-  // setup app routes
-  const routes = './../routes'
-  router.get('/', require(`${routes}/`)())
+router.get('/', require(`${routes}/`)())
+router.post('/ecom/webhook', require(`${routes}/ecom/webhook`)())
+router.post('/ecom/auth-callback', require(`${routes}/ecom/auth-callback`)())
 
-  // base routes for E-Com Plus Store API
-  ;[ 'auth-callback', 'webhook' ].forEach(endpoint => {
-    let filename = `/ecom/${endpoint}`
-    router.post(filename, require(`${routes}${filename}`)(appSdk))
-  })
+app.use(router)
 
-  /* Add custom app routes here */
-
-  // add router and start web server
-  app.use(router)
-  app.listen(port)
-  logger.log(`--> Starting web app on port :${port}`)
-})
-
-ecomAuth.catch(err => {
-  logger.error(err)
-  setTimeout(() => {
-    // destroy Node process while Store API auth cannot be handled
-    process.exit(1)
-  }, 1100)
-})
+exports.widgets = functions.https.onRequest(app);

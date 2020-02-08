@@ -27,10 +27,6 @@ application (on kebab-case).
 to specify the webhooks your app should receive
 at [`lib/store-api/procedures.js`](https://github.com/ecomclub/express-app-boilerplate/blob/master/app/lib/store-api/procedures.js);
 
-- If your app has custom daemon processes,
-you may run them from
-[`bin/local.js`](https://github.com/ecomclub/express-app-boilerplate/blob/master/app/bin/local.js);
-
 - Edit
 [`routes/ecom/webhooks.js`](https://github.com/ecomclub/express-app-boilerplate/blob/master/app/routes/ecom/webhook.js)
 to handle received webhooks from Store API properly;
