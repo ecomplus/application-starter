@@ -1,9 +1,9 @@
 {
-  "name": "@ecomplus/express-app-boilerplate",
+  "name": "@ecomplus/firebase-app-boilerplate",
   "private": true,
-  "version": "0.1.1",
-  "description": "Boilerplate for E-Com Plus apps with Express",
-  "main": "app/main.js",
+  "version": "0.0.1",
+  "description": "Boilerplate for E-Com Plus apps with Firebase Cloud Functions",
+  "main": "functions/index.js",
   "scripts": {
     "release": "standard-version"
   },
@@ -21,9 +21,9 @@
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecomclub/express-app-boilerplate/issues"
+    "url": "https://github.com/ecomclub/firebase-app-boilerplate/issues"
   },
-  "homepage": "https://github.com/ecomclub/express-app-boilerplate#readme",
+  "homepage": "https://github.com/ecomclub/firebase-app-boilerplate#readme",
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
