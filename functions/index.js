@@ -2,8 +2,6 @@
 
 'use strict'
 
-// log to files
-const logger = require('console-files')
 // handle app authentication to Store API
 // https://github.com/ecomclub/ecomplus-app-sdk
 const { ecomServerIps, setup } = require('ecomplus-app-sdk')
@@ -13,10 +11,9 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const router = express.Router()
-const port = process.env.PORT || 3000
 const admin = require('firebase-admin')
 const functions = require('firebase-functions')
-const routes = './../routes'
+const routes = './routes'
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -45,13 +42,11 @@ app.use((req, res, next) => {
   next()
 })
 
-router.get('/', require(`${routes}/`)())
 router.post('/ecom/webhook', require(`${routes}/ecom/webhook`)())
 router.post('/ecom/auth-callback', require(`${routes}/ecom/auth-callback`)())
 
 app.use(router)
 
-// https://github.com/ecomclub/ecomplus-app-sdk/blob/master/main.js#L45
 setup(null, true, admin.firestore())
 
-exports.widgets = functions.https.onRequest(app);
+exports.widgets = functions.https.onRequest(app)

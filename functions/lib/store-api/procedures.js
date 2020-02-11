@@ -1,4 +1,5 @@
 'use strict'
+require('dotenv').config()
 
 // APP hostname and base URL path
 const appBaseUri = process.env.APP_BASE_URI
