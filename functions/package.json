@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "console-files": "2.x",
-    "dotenv": "^8.2.0",
     "ecomplus-app-sdk": "^1.11.0-beta",
     "express": "4.x",
     "firebase-admin": "^8.6.0",
