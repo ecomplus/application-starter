@@ -14,6 +14,7 @@ const router = express.Router()
 const admin = require('firebase-admin')
 const functions = require('firebase-functions')
 const routes = './routes'
+admin.initializeApp()
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
