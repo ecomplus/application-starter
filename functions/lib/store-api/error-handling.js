@@ -1,12 +1,9 @@
 'use strict'
 
-// log on files
-const logger = require('console-files')
-
 const ignoreError = response => {
   // check response status code
   // should ignore some error responses
-  let { status, data } = response
+  const { status, data } = response
   if (status >= 400 && status < 500) {
     switch (status) {
       case 403:
@@ -41,12 +38,12 @@ module.exports = err => {
     }
 
     // debug unexpected response
-    logger.error(err)
+    console.error(err)
   } else if (err.appErrorLog && !err.appErrorLogged) {
     // cannot log to app hidden data
     // debug app log error
-    let error = err.appErrorLog
-    let { response, config } = error
+    const error = err.appErrorLog
+    const { response, config } = error
 
     // handle error response
     if (response) {
@@ -58,7 +55,7 @@ module.exports = err => {
         originalRequest: JSON.stringify(err.config),
         logRequest: JSON.stringify(config)
       }
-      logger.error(error)
+      console.error(error)
     }
   }
 }
