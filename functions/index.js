@@ -2,19 +2,22 @@
 
 'use strict'
 
-// handle app authentication to Store API
-// https://github.com/ecomclub/ecomplus-app-sdk
-const { ecomServerIps, setup } = require('ecomplus-app-sdk')
+// Firebase SDKs to setup cloud functions and access Firestore database
+const admin = require('firebase-admin')
+const functions = require('firebase-functions')
+const functionName = 'ecomApp'
+admin.initializeApp()
 
 // web server with Express
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const router = express.Router()
-const admin = require('firebase-admin')
-const functions = require('firebase-functions')
 const routes = './routes'
-admin.initializeApp()
+
+// handle app authentication to Store API
+// https://github.com/ecomclub/ecomplus-app-sdk
+const { ecomServerIps, setup } = require('ecomplus-app-sdk')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -43,11 +46,17 @@ app.use((req, res, next) => {
   next()
 })
 
-router.post('/ecom/webhook', require(`${routes}/ecom/webhook`)())
-router.post('/ecom/auth-callback', require(`${routes}/ecom/auth-callback`)())
+router.get('/', require(`${routes}/`))
+
+// setup ecomAuth client with Firestore instance
+setup(null, true, admin.firestore()).then(appSdk => {
+  // base routes for E-Com Plus Store API
+  ;['auth-callback', 'webhook'].forEach(endpoint => {
+    const filename = `/ecom/${endpoint}`
+    router.post(filename, require(`${routes}${filename}`)({ appSdk, admin }))
+  })
+})
 
 app.use(router)
-
-setup(null, true, admin.firestore())
-
-exports.widgets = functions.https.onRequest(app)
+exports[functionName] = functions.https.onRequest(app)
+console.log(`Starting E-Com Plus app with Cloud Function '${functionName}'`)
