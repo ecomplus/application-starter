@@ -1,7 +1,7 @@
 'use strict'
 
 // read configured E-Com Plus app data
-const getConfig = require(process.cwd() + '/lib/store-api/get-config')
+const getConfig = require('../../lib/store-api/get-config')
 
 const SKIP_TRIGGER_NAME = 'SkipTrigger'
 const ECHO_SUCCESS = 'SUCCESS'

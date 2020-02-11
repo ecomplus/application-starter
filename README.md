@@ -1,8 +1,8 @@
 # express-app-boilerplate
 
-Boilerplate for E-Com Plus apps with Node.js and Express web framework
+Boilerplate for E-Com Plus apps with Node.js and Firebase
 
-[Changelog](https://github.com/ecomclub/express-app-boilerplate/blob/master/CHANGELOG.md)
+[Changelog](https://github.com/ecomclub/firebase-app-boilerplate/blob/master/CHANGELOG.md)
 
 ## Getting started
 
@@ -12,9 +12,9 @@ by running the following commands (bash):
 ```bash
 mkdir my-app
 cd my-app
-git clone https://github.com/ecomclub/express-app-boilerplate.git
-cp -r express-app-boilerplate/app/* ./
-rm -rf express-app-boilerplate
+git clone https://github.com/ecomclub/firebase-app-boilerplate.git
+cp -r firebase-app-boilerplate/functions/* ./
+rm -rf firebase-app-boilerplate
 ```
 
 You should replace `my-app` with the name of your
@@ -25,18 +25,16 @@ application (on kebab-case).
 - Configure custom
 [Store API procedures](https://developers.e-com.plus/docs/api/#/store/procedures/)
 to specify the webhooks your app should receive
-at [`lib/store-api/procedures.js`](https://github.com/ecomclub/express-app-boilerplate/blob/master/app/lib/store-api/procedures.js);
+at [`lib/store-api/procedures.js`](https://github.com/ecomclub/firebase-app-boilerplate/blob/master/app/lib/store-api/procedures.js);
 
 - Edit
-[`routes/ecom/webhooks.js`](https://github.com/ecomclub/express-app-boilerplate/blob/master/app/routes/ecom/webhook.js)
+[`routes/ecom/webhooks.js`](https://github.com/ecomclub/firebase-app-boilerplate/blob/master/functions/routes/ecom/webhook.js)
 to handle received webhooks from Store API properly;
 
 - Add custom web app routes by creating new files to
-[`routes`](https://github.com/ecomclub/express-app-boilerplate/tree/master/app/routes)
-folder and adding them to Express router at
-[`bin/web.js`](https://github.com/ecomclub/express-app-boilerplate/blob/master/app/bin/web.js);
+[`routes`](https://github.com/ecomclub/firebase-app-boilerplate/tree/master/functions/routes)
 
 - You may also create new JS files at
-[`lib`](https://github.com/ecomclub/express-app-boilerplate/tree/master/app/lib)
+[`lib`](https://github.com/ecomclub/firebase-app-boilerplate/tree/master/functions/lib)
 folder to add new methods or handlers to be included
 on your app source;
