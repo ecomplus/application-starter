@@ -1,9 +1,10 @@
 'use strict'
 
+const functions = require('firebase-functions')
 // APP hostname and base URL path
-const appBaseUri = process.env.APP_BASE_URI
+const appBaseUri = functions.config().app.base_uri
 // APP name to procedures titles
-const appName = process.env.APP_NAME
+const appName = functions.config().app.name
 
 // exports array of procedures to be created on each store after app installation
 // Procedure object reference:
