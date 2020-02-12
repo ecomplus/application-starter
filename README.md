@@ -38,3 +38,8 @@ to handle received webhooks from Store API properly;
 [`lib`](https://github.com/ecomclub/firebase-app-boilerplate/tree/master/functions/lib)
 folder to add new methods or handlers to be included
 on your app source;
+
+- Before deploy the project, you must to create the env variables:
+```bash
+firebase functions:config:set app.base_uri="THE BASE URI" app.name="THE APP NAME" app.ecom_auth_update="disabled"
+```
