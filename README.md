@@ -20,6 +20,15 @@ rm -rf firebase-app-boilerplate
 You should replace `my-app` with the name of your
 application (on kebab-case).
 
+## Install and configure firebase tools
+
+```bash
+npm install -g firebase-tools
+firebase login
+firebase init
+firebase deploy --only functions
+```
+
 ## Next steps
 
 - Configure custom
@@ -41,5 +50,5 @@ on your app source;
 
 - Before deploy the project, you must to create the env variables:
 ```bash
-firebase functions:config:set app.base_uri="THE BASE URI" app.name="THE APP NAME" app.ecom_auth_update="disabled"
+firebase functions:config:set app.base_uri="THE BASE URI" app.name="THE APP NAME"
 ```
