@@ -36,7 +36,8 @@ app.use((req, res, next) => {
     }
 
     // on production check if request is comming from E-Com Plus servers
-    if (process.env.NODE_ENV === 'production' && ecomServerIps.indexOf(req.get('x-real-ip')) === -1) {
+    const clientIp = req.get('x-forwarded-for') || req.connection.remoteAddress
+    if (process.env.NODE_ENV === 'production' && ecomServerIps.indexOf(clientIp) === -1) {
       return res.status(403).send('Who are you? Unauthorized IP address')
     }
   }
