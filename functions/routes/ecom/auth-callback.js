@@ -9,25 +9,20 @@ module.exports = ({ appSdk }) => (req, res) => {
   // handle callback with E-Com Plus app SDK
   // https://github.com/ecomclub/ecomplus-app-sdk
   appSdk.handleCallback(storeId, req.body)
-    .then(({ isNew, authenticationId, settedUp }) => {
-      if (!isNew && !settedUp) {
-        appSdk.getAuth(storeId, authenticationId).then(auth => {
-          appSdk.saveProcedures(storeId, procedures).then(() => {
-            if (auth.doc) {
-              auth.doc(authenticationId).set({ setted_up: true }, { merge: true })
-                .catch(err => {
-                  console.error(err)
-                  res.status(500)
-                  const { message } = err
-                  res.send({
-                    error: 'auth_callback_error',
-                    message
-                  })
-                })
-            }
-          })
+    .then(({ isNew, authenticationId }) => {
+      if (!isNew) {
+        return appSdk.getAuth(storeId, authenticationId).then(auth => {
+          const { row, doc } = auth
+          if (!row.settep_up) {
+            // must save procedures once
+            return appSdk.saveProcedures(storeId, procedures, auth)
+               .then(() => doc(authenticationId).set({ setted_up: true }, { merge: true })
+          }
         })
       }
+    })
+        
+    .then(() => {
       // authentication tokens were updated
       res.status(204)
       res.end()
