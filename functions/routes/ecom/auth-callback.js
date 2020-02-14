@@ -10,15 +10,18 @@ module.exports = ({ appSdk }) => (req, res) => {
   // https://github.com/ecomclub/ecomplus-app-sdk
   appSdk.handleCallback(storeId, req.body)
     .then(({ isNew, authenticationId }) => {
-      if (!isNew) {
-        return appSdk.getAuth(storeId, authenticationId).then(auth => {
-          const { row, doc } = auth
-          if (!row.settep_up) {
-            // must save procedures once
-            return appSdk.saveProcedures(storeId, procedures, auth)
-               .then(() => doc(authenticationId).set({ setted_up: true }, { merge: true })
-          }
-        })
+      if (!isNew && procedures && procedures.length) {
+        const { triggers } = procedures[0]
+        if (triggers && triggers.length) {
+          return appSdk.getAuth(storeId, authenticationId).then(auth => {
+            const { row, doc } = auth
+            if (!row.settep_up) {
+              // must save procedures once
+              return appSdk.saveProcedures(storeId, procedures, auth)
+                .then(() => doc(authenticationId).set({ setted_up: true }, { merge: true }))
+            }
+          })
+        }
       }
     })
         
