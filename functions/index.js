@@ -61,6 +61,7 @@ router.get('/', require(`${routes}/`))
   router.post(filename, (req, res) => {
     // first disable set interval (no daemons on cloud functions)
     process.env.ECOM_AUTH_UPDATE_INTERVAL = 'disabled'
+    process.env.ECOM_AUTH_DEBUG = 'true'
 
     // setup ecomAuth client with Firestore instance
     setup(null, true, admin.firestore()).then(appSdk => {
