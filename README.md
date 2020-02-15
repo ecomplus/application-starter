@@ -1,6 +1,7 @@
-# express-app-boilerplate
+# firebase-app-boilerplate
 
-Boilerplate for E-Com Plus apps with Node.js and Firebase
+Boilerplate for E-Com Plus apps with
+[Firebase](https://firebase.google.com/) Cloud Functions
 
 [Changelog](https://github.com/ecomclub/firebase-app-boilerplate/blob/master/CHANGELOG.md)
 
@@ -51,5 +52,8 @@ on your app source;
 - Before deploy the project, you must to create the env variables:
 
 ```bash
-firebase functions:config:set app.base_uri="https://us-central1-<project-id>.cloudfunctions.net" app.name="My E-Com Plus App"
+firebase functions:config:set \
+server.operatorToken="CUSTOM_TOKEN_HERE" \
+server.baseUri="https://us-central1-<project-id>.cloudfunctions.net/ecomApp" \
+app.title="My Awesome E-Com Plus App"
 ```
