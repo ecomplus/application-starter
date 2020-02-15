@@ -18,7 +18,7 @@ module.exports = ({ appSdk }) => (req, res) => {
             if (!row.settep_up) {
               // must save procedures once
               return appSdk.saveProcedures(storeId, procedures, auth)
-                .then(() => doc(authenticationId).set({ setted_up: true }, { merge: true }))
+                .then(() => docRef(authenticationId).set({ setted_up: true }, { merge: true }))
             }
           })
         }
