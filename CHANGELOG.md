@@ -43,6 +43,8 @@ All notable changes to this project will be documented in this file. See [standa
 * **firestore-support:** removed sqlite error clausule ([2d47996](https://github.com/ecomclub/express-app-boilerplate/commit/2d47996))
 * **routes:** add home route (app json) ([42a3f2b](https://github.com/ecomclub/express-app-boilerplate/commit/42a3f2b))
 
+# [LEGACY] From Express App Boilerplate
+
 ### [0.1.1](https://github.com/ecomclub/express-app-boilerplate/compare/v0.1.0...v0.1.1) (2019-07-31)
 
 
