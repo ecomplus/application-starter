@@ -18,13 +18,13 @@ module.exports = ({ appSdk }) => (req, res) => {
             if (!row.settep_up) {
               // must save procedures once
               return appSdk.saveProcedures(storeId, procedures, auth)
-                .then(() => docRef(authenticationId).set({ setted_up: true }, { merge: true }))
+                .then(() => docRef.set({ setted_up: true }, { merge: true }))
             }
           })
         }
       }
     })
-        
+
     .then(() => {
       // authentication tokens were updated
       res.status(204)
