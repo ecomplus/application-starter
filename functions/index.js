@@ -17,6 +17,8 @@ const routes = './routes'
 
 // handle app authentication to Store API
 // https://github.com/ecomclub/ecomplus-app-sdk
+// disable set interval (no daemons on cloud functions)
+process.env.ECOM_AUTH_UPDATE_INTERVAL = 'disabled'
 const { ecomServerIps, setup } = require('ecomplus-app-sdk')
 
 app.use(bodyParser.urlencoded({ extended: false }))
