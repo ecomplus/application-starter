@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/express-app-boilerplate.git"
+    "url": "git+https://github.com/ecomclub/firebase-app-boilerplate.git"
   },
   "keywords": [
     "ecomplus",
