@@ -14,7 +14,7 @@ module.exports = ({ appSdk }) => (req, res) => {
         const { triggers } = procedures[0]
         if (triggers && triggers.length) {
           return appSdk.getAuth(storeId, authenticationId).then(auth => {
-            const { row, doc } = auth
+            const { row, docRef } = auth
             if (!row.settep_up) {
               // must save procedures once
               return appSdk.saveProcedures(storeId, procedures, auth)
