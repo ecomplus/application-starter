@@ -3,7 +3,7 @@
 // E-Com Plus Procedures to register
 const procedures = require('./../../lib/store-api/procedures')
 
-module.exports = ({ appSdk }) => (req, res) => {
+module.exports = ({ appSdk }, req, res) => {
   const { storeId } = req
 
   // handle callback with E-Com Plus app SDK

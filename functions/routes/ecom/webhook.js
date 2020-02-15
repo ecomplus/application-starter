@@ -1,14 +1,14 @@
 'use strict'
 
 // read configured E-Com Plus app data
-const getConfig = require('./../../lib/store-api/get-config')
+const getAppData = require('./../../lib/store-api/get-app-data')
 
 const SKIP_TRIGGER_NAME = 'SkipTrigger'
 const ECHO_SUCCESS = 'SUCCESS'
 const ECHO_SKIP = 'SKIP'
 const ECHO_API_ERROR = 'STORE_API_ERR'
 
-module.exports = ({ appSdk }) => (req, res) => {
+module.exports = ({ appSdk }, req, res) => {
   const { storeId } = req
   /*
   Treat E-Com Plus trigger body here
@@ -17,7 +17,7 @@ module.exports = ({ appSdk }) => (req, res) => {
   */
 
   // get app configured options
-  getConfig({ appSdk, storeId })
+  getAppData({ appSdk, storeId })
 
     .then(configObj => {
       /* Do the stuff */
