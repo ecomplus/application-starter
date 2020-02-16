@@ -2,7 +2,7 @@
 
 // setup server and app options from Functions config (and mocks)
 const { server, app } = require('firebase-functions').config()
-const functionName = 'ecomApp'
+const functionName = server.functionName || 'app'
 
 module.exports = {
   functionName,
