@@ -54,6 +54,5 @@ on your app source;
 ```bash
 firebase functions:config:set \
 server.operatorToken="CUSTOM_TOKEN_HERE" \
-server.baseUri="https://us-central1-<project-id>.cloudfunctions.net/ecomApp" \
 app.title="My Awesome E-Com Plus App"
 ```
