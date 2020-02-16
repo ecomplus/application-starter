@@ -5,7 +5,7 @@ on:
     - cron: '25 7,15,23 * * *'
 
 jobs:
-  update-dependencies:
+  call-refresh-tokens:
     name: Call refresh tokens
     runs-on: ubuntu-latest
 
