@@ -56,7 +56,7 @@ server.use((req, res, next) => {
 router.get('/', require(`${routes}/`))
 
 // base routes for E-Com Plus Store API
-;['auth-callback', 'update-tokens', 'webhook'].forEach(endpoint => {
+;['auth-callback', 'refresh-tokens', 'webhook'].forEach(endpoint => {
   const filename = `/ecom/${endpoint}`
   router.post(filename, (req, res) => {
     // first disable set interval (no daemons on cloud functions)
