@@ -1,0 +1,20 @@
+name: Call refresh tokens
+
+on:
+  schedule:
+    - cron: '25 7,15,23 * * *'
+
+jobs:
+  update-dependencies:
+    name: Call refresh tokens
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Fetch cloud function to trigger tokens refresh
+        env:
+          SERVER_OPERATOR_TOKEN: ${{ secrets.SERVER_OPERATOR_TOKEN }}
+          SERVER_BASE_URI: ${{ secrets.SERVER_BASE_URI }}
+        run: |
+          curl --silent --show-error --fail \
+            -H "X-Operator-Token: $SERVER_OPERATOR_TOKEN" \
+            -X POST $SERVER_BASE_URI/ecom/refresh-tokens
