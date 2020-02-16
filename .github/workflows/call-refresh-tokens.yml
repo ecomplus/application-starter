@@ -6,11 +6,11 @@ on:
 
 jobs:
   call-refresh-tokens:
-    name: Call refresh tokens
+    name: Fetch refresh tokens on cloud function 
     runs-on: ubuntu-latest
 
     steps:
-      - name: Fetch cloud function to trigger tokens refresh
+      - name: Run cURL POST
         env:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
           SERVER_OPERATOR_TOKEN: ${{ secrets.SERVER_OPERATOR_TOKEN }}
