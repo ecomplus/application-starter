@@ -41,6 +41,6 @@ on your app source;
 
 ```bash
 firebase functions:config:set \
-server.operatorToken="CUSTOM_TOKEN_HERE" \
+server.operator_token="CUSTOM_TOKEN_HERE" \
 app.title="My Awesome E-Com Plus App"
 ```
