@@ -32,10 +32,10 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install root dependencies
-        run: npm ci --only=production
+        run: npm i --only=production
 
       - name: Install functions dependencies
-        run: cd functions && npm ci --only=production --no-optional
+        run: cd functions && npm i --only=production --no-optional
 
       - name: Run deploy
         env:
