@@ -1,25 +1,13 @@
-# firebase-app-boilerplate
+# application-starter
 
 Boilerplate for E-Com Plus apps with
 [Firebase](https://firebase.google.com/) Cloud Functions
 
-[Changelog](https://github.com/ecomclub/firebase-app-boilerplate/blob/master/CHANGELOG.md)
+[Changelog](https://github.com/ecomplus/application-starter/blob/master/CHANGELOG.md)
 
 ## Getting started
 
-Setup the source of your new E-Com Plus app with this boilerplate
-by running the following commands (bash):
-
-```bash
-mkdir my-app
-cd my-app
-git clone https://github.com/ecomclub/firebase-app-boilerplate.git
-cp -r firebase-app-boilerplate/functions/* ./
-rm -rf firebase-app-boilerplate
-```
-
-You should replace `my-app` with the name of your
-application (on kebab-case).
+> TODO
 
 ## Install and configure firebase tools
 
@@ -35,17 +23,17 @@ firebase deploy --only functions
 - Configure custom
 [Store API procedures](https://developers.e-com.plus/docs/api/#/store/procedures/)
 to specify the webhooks your app should receive
-at [`lib/store-api/procedures.js`](https://github.com/ecomclub/firebase-app-boilerplate/blob/master/app/lib/store-api/procedures.js);
+at [`lib/store-api/procedures.js`](https://github.com/ecomplus/application-starter/blob/master/app/lib/store-api/procedures.js);
 
 - Edit
-[`routes/ecom/webhooks.js`](https://github.com/ecomclub/firebase-app-boilerplate/blob/master/functions/routes/ecom/webhook.js)
+[`routes/ecom/webhooks.js`](https://github.com/ecomplus/application-starter/blob/master/functions/routes/ecom/webhook.js)
 to handle received webhooks from Store API properly;
 
 - Add custom web app routes by creating new files to
-[`routes`](https://github.com/ecomclub/firebase-app-boilerplate/tree/master/functions/routes)
+[`routes`](https://github.com/ecomplus/application-starter/tree/master/functions/routes)
 
 - You may also create new JS files at
-[`lib`](https://github.com/ecomclub/firebase-app-boilerplate/tree/master/functions/lib)
+[`lib`](https://github.com/ecomplus/application-starter/tree/master/functions/lib)
 folder to add new methods or handlers to be included
 on your app source;
 
