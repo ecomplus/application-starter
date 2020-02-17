@@ -7,7 +7,7 @@ module.exports = ({ appSdk }, req, res) => {
   const { storeId } = req
 
   // handle callback with E-Com Plus app SDK
-  // https://github.com/ecomclub/ecomplus-app-sdk
+  // https://github.com/ecomplus/application-sdk
   appSdk.handleCallback(storeId, req.body)
     .then(({ isNew, authenticationId }) => {
       if (!isNew && procedures && procedures.length) {
