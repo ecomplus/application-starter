@@ -6,8 +6,8 @@ const functionName = server.functionName || 'app'
 
 module.exports = {
   functionName,
-  operatorToken: server && server.operatorToken,
-  baseUri: (server && server.baseUri) ||
+  operatorToken: server && server.operator_token,
+  baseUri: (server && server.base_uri) ||
     `https://us-central1-${process.env.GCLOUD_PROJECT}.cloudfunctions.net/${functionName}`,
   app: {
     title: 'No Named',
