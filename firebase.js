@@ -36,7 +36,7 @@ if (APP_TITLE) {
   config.push(`app.title="${APP_TITLE}"`)
 }
 
-client.functions.config.set(config)
+client.functions.config.set(config, { project })
   .then(() => {
     return client[FIREBASE_COMMAND || 'serve']({
       project,
