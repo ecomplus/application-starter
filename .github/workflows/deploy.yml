@@ -22,7 +22,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '10.x'
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Cache dependencies
         uses: actions/cache@v1
@@ -33,13 +32,9 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install root dependencies
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm ci --only=production
 
       - name: Install functions dependencies
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: cd functions && npm ci --only=production --no-optional
 
       - name: Run deploy
