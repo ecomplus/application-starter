@@ -8,10 +8,11 @@
   "authentication": true,
   "auth_callback_uri": "<base-uri>/ecom/auth-callback",
   "auth_scope": {
+    "stores/me": [
+      "GET"
+    ],
     "procedures": [
       "POST"
     ]
-  },
-  "admin_settings": {
   }
 }
