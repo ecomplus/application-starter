@@ -27,13 +27,13 @@ if (!project) {
 const client = require('firebase-tools')
 
 const config = [
-  `server.operator_token="${SERVER_OPERATOR_TOKEN}"`
+  `server.operator_token=${SERVER_OPERATOR_TOKEN}`
 ]
 if (SERVER_BASE_URI) {
-  config.push(`server.base_uri="${SERVER_BASE_URI}"`)
+  config.push(`server.base_uri=${SERVER_BASE_URI}`)
 }
 if (APP_TITLE) {
-  config.push(`app.title="${APP_TITLE}"`)
+  config.push(`app.title=${APP_TITLE}`)
 }
 
 client.functions.config.set(config, { project })
