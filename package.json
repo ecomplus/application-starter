@@ -1,5 +1,5 @@
 {
-  "name": "@ecomplus/firebase-app-boilerplate",
+  "name": "@ecomplus/application-starter",
   "private": true,
   "version": "0.0.4",
   "description": "Boilerplate for E-Com Plus apps with Firebase Cloud Functions",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/firebase-app-boilerplate.git"
+    "url": "git+https://github.com/ecomplus/application-starter.git"
   },
   "keywords": [
     "ecomplus",
@@ -23,9 +23,9 @@
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecomclub/firebase-app-boilerplate/issues"
+    "url": "https://github.com/ecomplus/application-starter/issues"
   },
-  "homepage": "https://github.com/ecomclub/firebase-app-boilerplate#readme",
+  "homepage": "https://github.com/ecomplus/application-starter#readme",
   "dependencies": {
     "firebase-tools": "^7.13.0"
   },
