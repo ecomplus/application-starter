@@ -17,8 +17,8 @@ const router = express.Router()
 const routes = './routes'
 
 // handle app authentication to Store API
-// https://github.com/ecomclub/ecomplus-app-sdk
-const { ecomServerIps, setup } = require('ecomplus-app-sdk')
+// https://github.com/ecomplus/application-sdk
+const { ecomServerIps, setup } = require('@ecomplus/application-sdk')
 
 server.use(bodyParser.urlencoded({ extended: false }))
 server.use(bodyParser.json())
