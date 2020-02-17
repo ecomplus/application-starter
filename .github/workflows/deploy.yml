@@ -16,14 +16,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '12'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@ecomplus'
+          node-version: '12.x'
 
       - name: Cache dependencies
         uses: actions/cache@v1
@@ -37,7 +35,7 @@ jobs:
         run: npm ci --only=production
 
       - name: Install functions dependencies
-        run: cd functions && npm ci --only=production --no-optional
+        run: cd functions && npm ci --only=production --no-optional && cd ..
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
