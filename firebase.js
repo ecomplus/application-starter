@@ -26,23 +26,28 @@ if (!project) {
 
 const client = require('firebase-tools')
 
-let config = `server.operatorToken="${SERVER_OPERATOR_TOKEN}"`
+const config = [
+  `server.operatorToken="${SERVER_OPERATOR_TOKEN}"`
+]
 if (SERVER_BASE_URI) {
-  config += ` server.baseUri="${SERVER_BASE_URI}"`
+  config.push(`server.baseUri="${SERVER_BASE_URI}"`)
 }
 if (APP_TITLE) {
-  config += ` app.title="${APP_TITLE}"`
+  config.push(`app.title="${APP_TITLE}"`)
 }
 
-client.functions.config.set(config).then(() => {
-  return client[FIREBASE_COMMAND || 'serve']({
-    project,
-    only: 'functions',
-    token: FIREBASE_TOKEN,
-    force: true
-  }).then(() => {
-    console.log(`Deployed with success to Firebase project '${project}'`)
+client.functions.config.set(config)
+  .then(() => {
+    return client[FIREBASE_COMMAND || 'serve']({
+      project,
+      only: 'functions',
+      token: FIREBASE_TOKEN,
+      force: true
+    }).then(() => {
+      console.log(`Deployed with success to Firebase project '${project}'`)
+    })
   })
-}).catch(err => {
-  throw err
-})
+  .catch(err => {
+    console.error(err)
+    process.exit(1)
+  })
