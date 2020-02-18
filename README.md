@@ -40,7 +40,7 @@ Almost ready, time to :coffee: and code!
 
 - You may also create files at `functions/lib` folder to add abstractions included on your app source;
 
-## Continuous deployment
+## Continuous integration
 
 Every commit will trigger a new **deploy** (with [GitHub Actions](/actions)), then your app will be accessible at:
 
@@ -49,6 +49,8 @@ Every commit will trigger a new **deploy** (with [GitHub Actions](/actions)), th
 The `functions/assets/app.json` will be updated automatically with some package info and current Cloud Function endpoints, you can use it as body to [_Create new Application_](https://developers.e-com.plus/docs/api/#/store/applications/new-application) on Store API;
 
 > You can skip deploy workflow by adding `[skip ci]` to the commit message.
+
+Also, your app's access tokens to Store API will be **automatically refreshed** every 8 hours by scheduled workflow.
 
 ## Firebase tools
 
