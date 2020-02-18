@@ -47,20 +47,19 @@ jobs:
         run: npm run deploy
 
   update-app-json:
-    name: Get and commit application body
+    name: Update application body
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Run cURL GET and write to JSON file
+      - name: Run Wget and write to JSON file
         env:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
         run: |
-          curl --silent --show-error --fail \
-            https://us-central1-$FIREBASE_PROJECT_ID.cloudfunctions.net/app/ \
-            -o ./functions/assets/app.json
+          wget -O ./functions/assets/app.json \
+            https://us-central1-$FIREBASE_PROJECT_ID.cloudfunctions.net/app/
 
       - name: Commit local file changes
         run: |
