@@ -4,6 +4,9 @@
 
 const { functionName, operatorToken, app } = require('./__env')
 
+const path = require('path')
+const recursiveReadDir = require('./lib/recursive-read-dir')
+
 // Firebase SDKs to setup cloud functions and access Firestore database
 const admin = require('firebase-admin')
 const functions = require('firebase-functions')
@@ -60,25 +63,40 @@ router.get('/', (req, res) => {
 })
 
 // base routes for E-Com Plus Store API
-;['auth-callback', 'refresh-tokens', 'webhook'].forEach(endpoint => {
-  const filename = `/ecom/${endpoint}`
-  router.post(filename, (req, res) => {
-    // first disable set interval (no daemons on cloud functions)
-    process.env.ECOM_AUTH_UPDATE_INTERVAL = 'disabled'
-    process.env.ECOM_AUTH_DEBUG = 'true'
+recursiveReadDir(path.join(__dirname, routes)).forEach(filepath => {
+  // set filename eg.: '/ecom/auth-callback'
+  let filename = filepath.replace(__dirname, '').replace(/\.js$/i, '')
+  if (path.sep !== '/') {
+    filename = filename.split(path.sep).join('/')
+  }
+  if (filename.charAt(0) !== '/') {
+    filename = `/${filename}`
+  }
 
-    // setup ecomAuth client with Firestore instance
-    setup(null, true, admin.firestore()).then(appSdk => {
-      require(`${routes}${filename}`)({ appSdk, admin }, req, res)
-    }).catch(err => {
-      console.error(err)
-      res.status(500)
-      res.send({
-        error: 'SETUP',
-        message: 'Can\'t setup `ecomAuth`, check Firebase console registers'
-      })
-    })
-  })
+  // ignore home route
+  if (filename !== '/index') {
+    // expecting named exports with HTTP methods
+    const methods = require(`${routes}${filename}`)
+    for (const method in methods) {
+      const middleware = methods[method]
+      if (middleware) {
+        router[method](filename, (req, res) => {
+          // setup ecomAuth client with Firestore instance
+          process.env.ECOM_AUTH_DEBUG = 'true'
+          setup(null, true, admin.firestore()).then(appSdk => {
+            middleware({ appSdk, admin }, req, res)
+          }).catch(err => {
+            console.error(err)
+            res.status(500)
+            res.send({
+              error: 'SETUP',
+              message: 'Can\'t setup `ecomAuth`, check Firebase console registers'
+            })
+          })
+        })
+      }
+    }
+  }
 })
 
 server.use(router)
