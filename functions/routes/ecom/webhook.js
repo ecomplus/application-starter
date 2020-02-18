@@ -8,7 +8,7 @@ const ECHO_SUCCESS = 'SUCCESS'
 const ECHO_SKIP = 'SKIP'
 const ECHO_API_ERROR = 'STORE_API_ERR'
 
-module.exports = ({ appSdk }, req, res) => {
+exports.post = ({ appSdk }, req, res) => {
   const { storeId } = req
   /*
   Treat E-Com Plus trigger body here

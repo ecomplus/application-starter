@@ -5,7 +5,7 @@ const procedures = require('./../../lib/store-api/procedures')
 // handle Store API errors
 const errorHandling = require('./../../lib/store-api/error-handling')
 
-module.exports = ({ appSdk }, req, res) => {
+exports.post = ({ appSdk }, req, res) => {
   const { storeId } = req
 
   // handle callback with E-Com Plus app SDK
