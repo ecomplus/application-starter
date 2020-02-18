@@ -54,6 +54,7 @@ server.use((req, res, next) => {
 })
 
 router.get('/', (req, res) => {
+  // pretty print application body
   server.set('json spaces', 2)
   require(`${routes}/`)(req, res)
 })
