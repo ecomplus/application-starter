@@ -7,11 +7,11 @@ Boilerplate for E-Com Plus apps with [Firebase](https://firebase.google.com/) Cl
 ## Getting started
 
 1. Start creating a [Firebase project](https://console.firebase.google.com/):
-  - Analytics is not needed;
-  - Set a nice project name (ID) and remember it;
+    - Analytics is not needed;
+    - Set a nice project name (ID) and remember it;
 
 2. Enter the project, go to _databases_ page (on menu) and _create database_:
-  - Just bypass with default production mode and rules;
+    - Just bypass with default production mode and rules;
 
 3. Get your Firebase token from CLI:
 ```bash
@@ -22,9 +22,9 @@ firebase login:ci
 4. [Use this template](https://github.com/ecomplus/application-starter/generate) to generate a new repository for your application;
 
 5. Go to your repository _settings_ tab and set the following _secrets_:
-  - `FIREBASE_PROJECT_ID`: The ID (name) of your Firebase project;
-  - `FIREBASE_TOKEN`: The token generated with `firebase-tools`;
-  - `SERVER_OPERATOR_TOKEN`: Random (at least 16 bytes) admin token generated from CLI or [here](https://randomkeygen.com/);
+    - `FIREBASE_PROJECT_ID`: The ID (name) of your Firebase project;
+    - `FIREBASE_TOKEN`: The token generated with `firebase-tools`;
+    - `SERVER_OPERATOR_TOKEN`: Random (at least 16 bytes) admin token generated from CLI or [here](https://randomkeygen.com/);
 
 ## Next steps
 
@@ -38,7 +38,17 @@ Almost ready, time to :coffee: and code!
 
 - Add custom web app routes by creating new files to `functions/routes` folder;
 
-- You may also create new JS files at `functions/lib` folder to add new methods or handlers to be included on your app source;
+- You may also create files at `functions/lib` folder to add abstractions included on your app source;
+
+## Continuous deployment
+
+Every commit will trigger a new **deploy** (with [GitHub Actions](/actions)), then your app will be accessible at:
+
+`https://us-central1-<project-id>.cloudfunctions.net/app/` :blush:
+
+The `functions/assets/app.json` will be updated automatically with some package info and current Cloud Function endpoints;
+
+> You can skip deploy workflow by adding `[skip ci]` to the commit message.
 
 ## Firebase tools
 
