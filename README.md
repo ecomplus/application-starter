@@ -52,6 +52,20 @@ The `functions/assets/app.json` will be updated automatically with some package 
 
 Also, your app's access tokens to Store API will be **automatically refreshed** every 8 hours by scheduled workflow.
 
-## Firebase tools
+## Developing and testing locally
+
+Setup the project normally by cloning your repository and installing npm dependencies:
+
+```bash
+git clone git@github.com:$username/$app_repository.git
+cd $app_repository
+npm i
+cd functions
+npm i
+```
+
+Then you can call `npm run serve` from root project folder to test the function locally before deploy.
+
+### Firebase tools
 
 You can also use [`firebase-tools` CLI](https://firebase.google.com/docs/cli) to run tests/deploy with custom config or scripts.
