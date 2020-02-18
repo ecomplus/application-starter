@@ -9,8 +9,6 @@ module.exports = [
   {
     title: app.title,
     triggers: [
-      /*
-      Edit triggers here to fit the app necessities
       {
         resource: 'orders',
         action: 'create'
@@ -20,7 +18,6 @@ module.exports = [
         action: 'change',
         field: 'financial_status'
       }
-      */
     ],
     webhooks: [
       {
