@@ -35,9 +35,9 @@ module.exports = ({ appSdk }, req, res) => {
     })
 
     .catch(err => {
-      console.error(err)
+      const { message, response } = err
+      console.log(response || err)
       res.status(500)
-      const { message } = err
       res.send({
         error: 'auth_callback_error',
         message
