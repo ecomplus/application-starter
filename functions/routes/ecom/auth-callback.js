@@ -2,6 +2,8 @@
 
 // E-Com Plus Procedures to register
 const procedures = require('./../../lib/store-api/procedures')
+// handle Store API errors
+const errorHandling = require('./../../lib/store-api/error-handling')
 
 module.exports = ({ appSdk }, req, res) => {
   const { storeId } = req
@@ -36,7 +38,12 @@ module.exports = ({ appSdk }, req, res) => {
 
     .catch(err => {
       const { message, response } = err
-      console.error(response || err)
+      if (response) {
+        errorHandling(err)
+      } else {
+        // Firestore error ?
+        console.error(err)
+      }
       res.status(500)
       res.send({
         error: 'auth_callback_error',
