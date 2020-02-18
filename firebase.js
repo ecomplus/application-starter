@@ -1,10 +1,13 @@
+const { name, version } = require('./package.json')
+
 const {
   FIREBASE_COMMAND,
   FIREBASE_TOKEN,
   FIREBASE_PROJECT_ID,
-  APP_TITLE,
   SERVER_OPERATOR_TOKEN,
-  SERVER_BASE_URI
+  SERVER_BASE_URI,
+  APP_ID,
+  APP_TITLE
 } = process.env
 
 if (!FIREBASE_TOKEN || !SERVER_OPERATOR_TOKEN) {
@@ -27,10 +30,15 @@ if (!project) {
 const client = require('firebase-tools')
 
 const config = [
+  `pkg.version=${version}`,
+  `pkg.name=${name}`,
   `server.operator_token=${SERVER_OPERATOR_TOKEN}`
 ]
 if (SERVER_BASE_URI) {
   config.push(`server.base_uri=${SERVER_BASE_URI}`)
+}
+if (APP_ID) {
+  config.push(`app.app_id=${APP_ID}`)
 }
 if (APP_TITLE) {
   config.push(`app.title=${APP_TITLE}`)
