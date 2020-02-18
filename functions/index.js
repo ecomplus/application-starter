@@ -53,7 +53,10 @@ server.use((req, res, next) => {
   next()
 })
 
-router.get('/', require(`${routes}/`))
+router.get('/', (req, res) => {
+  server.set('json spaces', 2)
+  require(`${routes}/`)(req, res)
+})
 
 // base routes for E-Com Plus Store API
 ;['auth-callback', 'refresh-tokens', 'webhook'].forEach(endpoint => {
