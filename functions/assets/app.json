@@ -1,1 +1,18 @@
-{}
+{
+  "app_id": 9000,
+  "state": "active",
+  "title": "Firebase Boilerplate",
+  "type": "external",
+  "authentication": true,
+  "auth_scope": {
+    "stores/me": [
+      "GET"
+    ],
+    "procedures": [
+      "POST"
+    ]
+  },
+  "auth_callback_uri": "https://us-central1-ecom-app-boilerplate.cloudfunctions.net/app/ecom/auth-callback",
+  "version": "0.1.0",
+  "slug": "ecomplus-application-starter"
+}
