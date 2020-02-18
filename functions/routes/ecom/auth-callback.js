@@ -10,12 +10,15 @@ module.exports = ({ appSdk }, req, res) => {
   // https://github.com/ecomplus/application-sdk
   appSdk.handleCallback(storeId, req.body)
     .then(({ isNew, authenticationId }) => {
-      if (!isNew && procedures && procedures.length) {
+      if (isNew) {
+        console.log(`Installing store #${storeId}`)
+      } else if (procedures && procedures.length) {
         const { triggers } = procedures[0]
         if (triggers && triggers.length) {
           return appSdk.getAuth(storeId, authenticationId).then(auth => {
             const { row, docRef } = auth
             if (!row.settep_up) {
+              console.log(`Try saving procedures for store #${storeId}`)
               // must save procedures once
               return appSdk.saveProcedures(storeId, procedures, auth)
                 .then(() => docRef.set({ setted_up: true }, { merge: true }))
