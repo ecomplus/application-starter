@@ -13,6 +13,6 @@
     ]
   },
   "auth_callback_uri": "https://us-central1-ecom-app-boilerplate.cloudfunctions.net/app/ecom/auth-callback",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "slug": "ecomplus-application-starter"
 }
