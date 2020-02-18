@@ -17,7 +17,7 @@ if (baseUri) {
   }
   if (baseApp.modules) {
     Object.keys(baseApp.modules).forEach(modName => {
-      if (!baseApp.modules[modName].endpoint) {
+      if (baseApp.modules[modName] && !baseApp.modules[modName].endpoint) {
         baseApp.modules[modName].endpoint = `${baseUri}/ecom/modules/${modName}`
       }
     })
@@ -26,7 +26,7 @@ if (baseUri) {
 
 // set version and slug from root package
 if (!baseApp.version && pkg.version) {
-  baseApp.version = pkg.version
+  baseApp.version = pkg.version.replace(/-.*/, '')
 }
 if (!baseApp.slug && pkg.name) {
   baseApp.slug = pkg.name.replace('/', '-').replace(/[^0-9a-z-]/ig, '')
