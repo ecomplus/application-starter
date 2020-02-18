@@ -64,7 +64,7 @@ cd functions
 npm i
 ```
 
-Then you can call `npm run serve` from root project folder to test the function locally before deploy.
+Then you can call `npm run serve` from project root to test the function locally before deploy.
 
 ### Firebase tools
 
