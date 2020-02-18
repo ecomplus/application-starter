@@ -1,13 +1,14 @@
 {
   "name": "@ecomplus/application-starter",
   "private": true,
-  "version": "0.1.1",
+  "version": "1.0.0-starter",
   "description": "Boilerplate for E-Com Plus apps with Firebase Cloud Functions",
   "main": "functions/index.js",
   "scripts": {
     "serve": "FIREBASE_COMMAND=serve node ./firebase.js",
     "deploy": "NODE_ENV=production FIREBASE_COMMAND=deploy node ./firebase.js",
-    "release": "standard-version"
+    "release": "standard-version",
+    "release:starter": "standard-version --prerelease starter"
   },
   "repository": {
     "type": "git",
