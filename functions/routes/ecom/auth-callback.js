@@ -1,5 +1,3 @@
-'use strict'
-
 // E-Com Plus Procedures to register
 const procedures = require('./../../lib/store-api/procedures')
 // handle Store API errors

@@ -1,5 +1,3 @@
-'use strict'
-
 // handle Store API errors
 const errorHandling = require('./error-handling')
 

@@ -1,5 +1,3 @@
-'use strict'
-
 exports.post = ({ appSdk }, req, res) => {
   // we don't have to do nothing on this endpoint
   // update tokens service will be auto started by `appSdk` on setup:

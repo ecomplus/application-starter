@@ -1,5 +1,3 @@
-'use strict'
-
 const { baseUri, app } = require('./../../__env')
 
 // exports array of procedures to be created on each store after app installation

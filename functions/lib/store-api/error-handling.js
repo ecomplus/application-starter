@@ -1,5 +1,3 @@
-'use strict'
-
 const ignoreError = response => {
   // check response status code
   // should ignore some error responses

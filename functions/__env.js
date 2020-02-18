@@ -1,5 +1,3 @@
-'use strict'
-
 // setup server and app options from Functions config (and mocks)
 const { pkg, server, app } = require('firebase-functions').config()
 const functionName = server.functionName || 'app'

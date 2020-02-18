@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-'use strict'
-
 const { functionName, operatorToken, app } = require('./__env')
 
 const path = require('path')

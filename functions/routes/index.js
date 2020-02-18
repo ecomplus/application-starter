@@ -1,5 +1,3 @@
-'use strict'
-
 const { baseUri, app, pkg } = require('./../__env')
 
 // mocked app body
