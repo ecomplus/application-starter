@@ -12,14 +12,42 @@ exports.post = ({ appSdk }, req, res) => {
     .then(({ isNew, authenticationId }) => {
       if (isNew) {
         console.log(`Installing store #${storeId}`)
-      } else if (procedures.length) {
+        /**
+         * You may also want to send request to external server here:
+
+        const axios = require('axios').post()
+        return axios.post(`https://yourserver.com/new-ecom-store?store_id=${storeId}`, {
+          store_id: storeId,
+          authentication_id: authenticationId
+        })
+
+         */
+        return true
+      }
+
+      // not new store, just refreshing access token
+      if (procedures.length) {
         return appSdk.getAuth(storeId, authenticationId).then(auth => {
           const { row, docRef } = auth
           if (!row.settep_up) {
             console.log(`Try saving procedures for store #${storeId}`)
-            // must save procedures once
+
+            // must save procedures once only
             return appSdk.saveProcedures(storeId, procedures, auth)
               .then(() => docRef.set({ setted_up: true }, { merge: true }))
+              /**
+               * You may want additional request to your server with tokens after store setup:
+
+              .then(() => {
+                const axios = require('axios').post()
+                return axios.post(`https://yourserver.com/ecom-store-setup?store_id=${storeId}`, {
+                  store_id: storeId,
+                  authentication_id: authenticationId,
+                  access_token: auth.accessToken
+                })
+              })
+
+               */
           }
         })
       }
