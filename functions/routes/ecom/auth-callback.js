@@ -1,5 +1,5 @@
 // E-Com Plus Procedures to register
-const procedures = require('./../../lib/store-api/procedures')
+const { procedures } = require('./../../ecom.config')
 // handle Store API errors
 const errorHandling = require('./../../lib/store-api/error-handling')
 
@@ -12,19 +12,16 @@ exports.post = ({ appSdk }, req, res) => {
     .then(({ isNew, authenticationId }) => {
       if (isNew) {
         console.log(`Installing store #${storeId}`)
-      } else if (procedures && procedures.length) {
-        const { triggers } = procedures[0]
-        if (triggers && triggers.length) {
-          return appSdk.getAuth(storeId, authenticationId).then(auth => {
-            const { row, docRef } = auth
-            if (!row.settep_up) {
-              console.log(`Try saving procedures for store #${storeId}`)
-              // must save procedures once
-              return appSdk.saveProcedures(storeId, procedures, auth)
-                .then(() => docRef.set({ setted_up: true }, { merge: true }))
-            }
-          })
-        }
+      } else if (procedures.length) {
+        return appSdk.getAuth(storeId, authenticationId).then(auth => {
+          const { row, docRef } = auth
+          if (!row.settep_up) {
+            console.log(`Try saving procedures for store #${storeId}`)
+            // must save procedures once
+            return appSdk.saveProcedures(storeId, procedures, auth)
+              .then(() => docRef.set({ setted_up: true }, { merge: true }))
+          }
+        })
       }
     })
 

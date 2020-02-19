@@ -1,7 +1,7 @@
 const { baseUri, app, pkg } = require('./../__env')
 
 // mocked app body
-const baseApp = require('./../ecom-app.json')
+const baseApp = require('./../ecom.config').app
 
 if (app) {
   // merge with app from Function config
