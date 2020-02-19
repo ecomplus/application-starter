@@ -1,6 +1,6 @@
 # E-Com Plus Application Starter
 
-![Deploy](https://github.com/ecomplus/application-starter/workflows/Deploy/badge.svg) [![CodeFactor](https://www.codefactor.io/repository/github/ecomplus/storefront-starter/badge)](https://www.codefactor.io/repository/github/ecomplus/storefront-starter) [![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Deploy](https://github.com/ecomplus/application-starter/workflows/Deploy/badge.svg) ![Call refresh tokens](https://github.com/ecomplus/application-starter/workflows/Call%20refresh%20tokens/badge.svg) [![CodeFactor](https://www.codefactor.io/repository/github/ecomplus/storefront-starter/badge)](https://www.codefactor.io/repository/github/ecomplus/storefront-starter) [![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Boilerplate for E-Com Plus apps with [Firebase](https://firebase.google.com/) Cloud Functions and GitHub Actions.
 
