@@ -1,5 +1,7 @@
 # E-Com Plus Application Starter
 
+[![CodeFactor](https://www.codefactor.io/repository/github/ecomplus/storefront-starter/badge)](https://www.codefactor.io/repository/github/ecomplus/storefront-starter) ![Deploy](https://github.com/ecomplus/application-starter/workflows/Deploy/badge.svg) [![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Boilerplate for E-Com Plus apps with [Firebase](https://firebase.google.com/) Cloud Functions and GitHub Actions.
 
 [CHANGELOG](https://github.com/ecomplus/application-starter/blob/master/CHANGELOG.md)
@@ -30,19 +32,19 @@ firebase login:ci
 
 Almost ready, time to :coffee: and code!
 
-- Set `app_id`, `title` and optionally more fields on base app JSON at `functions/ecom-app.json` (check [Application object model](https://developers.e-com.plus/docs/api/#/store/applications/));
+Edit [`functions/ecom.config.js`](functions/ecom.config.js) to set correct `app_id`, `title` and optionally more fields on base app body.
 
-- Optionally edit `functions/lib/store-api/procedures.js` to configure custom [Store API Procedures](https://developers.e-com.plus/docs/api/#/store/procedures/) and specify the web-hooks your app should receive;
+If you're not yet familiarized with this boilerplate, **read the comments and instructions at the configuration file with attention**. You can also setup procedures from there to specify the web-hooks your app should receive.
 
-- Edit `functions/routes/ecom/webhooks.js` to handle received web-hooks from Store API properly;
+After checking `ecom.config.js`, you may want to:
 
-- Add custom web app routes by creating new files to `functions/routes` folder;
+- Add custom web app routes by creating new files to [`functions/routes`](functions/routes) folder;
 
-- You may also create files at `functions/lib` folder to add abstractions included on your app source;
+- Add abstractions included on your app source at [`functions/lib`](functions/lib) folder;
 
 ## Continuous integration
 
-Every commit will trigger a new **deploy** (with [GitHub Actions](/actions)), then your app will be accessible at:
+Every commit will trigger a new **deploy** (with [GitHub Actions](.github/workflows)), then your app will be accessible at:
 
 `https://us-central1-<project-id>.cloudfunctions.net/app/` :blush:
 
