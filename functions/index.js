@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { functionName, operatorToken, app } = require('./__env')
+const { functionName, operatorToken } = require('./__env')
 
 const path = require('path')
 const recursiveReadDir = require('./lib/recursive-read-dir')
@@ -16,6 +16,9 @@ const bodyParser = require('body-parser')
 const server = express()
 const router = express.Router()
 const routes = './routes'
+
+// enable/disable some E-Com common routes based on configuration
+const { app, procedures } = require('./ecom.config')
 
 // handle app authentication to Store API
 // https://github.com/ecomplus/application-sdk
@@ -72,28 +75,46 @@ recursiveReadDir(routesDir).forEach(filepath => {
     filename = `/${filename}`
   }
 
-  // ignore home route
-  if (filename !== '/index') {
-    // expecting named exports with HTTP methods
-    const methods = require(`${routes}${filename}`)
-    for (const method in methods) {
-      const middleware = methods[method]
-      if (middleware) {
-        router[method](filename, (req, res) => {
-          // setup ecomAuth client with Firestore instance
-          process.env.ECOM_AUTH_DEBUG = 'true'
-          setup(null, true, admin.firestore()).then(appSdk => {
-            middleware({ appSdk, admin }, req, res)
-          }).catch(err => {
-            console.error(err)
-            res.status(500)
-            res.send({
-              error: 'SETUP',
-              message: 'Can\'t setup `ecomAuth`, check Firebase console registers'
-            })
+  // ignore some routes
+  switch (filename) {
+    case '/index':
+      // home already set
+      return
+    case '/ecom/webhook':
+      // don't need webhook endpoint if no procedures configured
+      if (!procedures.length) {
+        return
+      }
+      break
+    default:
+      if (filename.startsWith('/ecom/modules/')) {
+        // check if module is enabled
+        const modName = filename.split('/').pop()
+        if (!app.modules || !app.modules[modName] || app.modules[modName].enabled === false) {
+          return
+        }
+      }
+  }
+
+  // expecting named exports with HTTP methods
+  const methods = require(`${routes}${filename}`)
+  for (const method in methods) {
+    const middleware = methods[method]
+    if (middleware) {
+      router[method](filename, (req, res) => {
+        // setup ecomAuth client with Firestore instance
+        process.env.ECOM_AUTH_DEBUG = 'true'
+        setup(null, true, admin.firestore()).then(appSdk => {
+          middleware({ appSdk, admin }, req, res)
+        }).catch(err => {
+          console.error(err)
+          res.status(500)
+          res.send({
+            error: 'SETUP',
+            message: 'Can\'t setup `ecomAuth`, check Firebase console registers'
           })
         })
-      }
+      })
     }
   }
 })
