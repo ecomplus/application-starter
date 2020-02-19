@@ -61,9 +61,10 @@ router.get('/', (req, res) => {
 })
 
 // base routes for E-Com Plus Store API
-recursiveReadDir(path.join(__dirname, routes)).forEach(filepath => {
+const routesDir = path.join(__dirname, routes)
+recursiveReadDir(routesDir).forEach(filepath => {
   // set filename eg.: '/ecom/auth-callback'
-  let filename = filepath.replace(__dirname, '').replace(/\.js$/i, '')
+  let filename = filepath.replace(routesDir, '').replace(/\.js$/i, '')
   if (path.sep !== '/') {
     filename = filename.split(path.sep).join('/')
   }
