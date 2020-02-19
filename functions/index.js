@@ -30,7 +30,7 @@ server.use(bodyParser.json())
 server.use((req, res, next) => {
   if (req.url.startsWith('/ecom/')) {
     // get E-Com Plus Store ID from request header
-    req.storeId = parseInt(req.get('x-store-id'), 10)
+    req.storeId = parseInt(req.get('x-store-id') || req.query.store_id, 10)
     if (req.url.startsWith('/ecom/modules/')) {
       // request from Mods API
       // https://github.com/ecomclub/modules-api
@@ -65,7 +65,7 @@ router.get('/', (req, res) => {
 
 // base routes for E-Com Plus Store API
 const routesDir = path.join(__dirname, routes)
-recursiveReadDir(routesDir).forEach(filepath => {
+recursiveReadDir(routesDir).filter(filepath => filepath.endsWith('.js')).forEach(filepath => {
   // set filename eg.: '/ecom/auth-callback'
   let filename = filepath.replace(routesDir, '').replace(/\.js$/i, '')
   if (path.sep !== '/') {
