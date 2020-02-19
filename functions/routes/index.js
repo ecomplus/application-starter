@@ -1,6 +1,6 @@
 const { baseUri, app, pkg } = require('./../__env')
 
-// mocked app body
+// configured base app body
 const baseApp = require('./../ecom.config').app
 
 if (app) {
