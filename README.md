@@ -34,7 +34,7 @@ Almost ready, time to :coffee: and code!
 
 Edit [`functions/ecom.config.js`](functions/ecom.config.js) to set correct `app_id`, `title` and optionally more fields on base app body.
 
-If you're not yet familiarized with this boilerplate, **read the comments and instructions at the configuration file with attention**. You can also setup procedures from there to specify the web-hooks your app should receive.
+If you're not yet familiarized with this boilerplate, **read with attention the comments and instructions at the configuration file**. You can also setup procedures from there to specify the web-hooks your app should receive.
 
 After checking `ecom.config.js`, you may want to:
 
