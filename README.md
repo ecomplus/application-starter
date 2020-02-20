@@ -92,11 +92,11 @@ We recommend treating Store API clients (40x) and server (50x) errors with [`err
 
 You may want to use [`appSdk`](https://github.com/ecomplus/application-sdk) to make custom authenticated requests to [Store API](https://developers.e-com.plus/docs/api/#/store/) or deeper coding out of our examples.
 
-### Custom scripts
+### Custom integration scripts
 
 - Add custom web app routes by creating new files to [`functions/routes`](functions/routes) folder;
 
-- Add abstractions included on your app source at [`functions/lib`](functions/lib) folder;
+- Add new methods/handlers at [`functions/lib`](functions/lib) folder;
 
 ## Continuous integration
 
