@@ -94,9 +94,15 @@ You may want to use [`appSdk`](https://github.com/ecomplus/application-sdk) to m
 
 ### Custom integration scripts
 
+- Add third party libraries to [`functions/package.json`](functions/package.json) dependencies;
+
 - Add custom web app routes by creating new files to [`functions/routes`](functions/routes) folder;
 
 - Add new methods/handlers at [`functions/lib`](functions/lib) folder;
+
+## Examples
+
+:sunglasses: [Awesome E-Com Plus applications](https://github.com/ecomplus/awesome#applications)
 
 ## Continuous integration
 
