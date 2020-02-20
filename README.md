@@ -36,7 +36,63 @@ Edit [`functions/ecom.config.js`](functions/ecom.config.js) to set correct `app_
 
 If you're not yet familiarized with this boilerplate, **read with attention the comments and instructions at the configuration file**. You can also setup procedures from there to specify the web-hooks your app should receive.
 
-After checking `ecom.config.js`, you may want to:
+### E-Com common routes
+
+All endpoints inside [`/ecom/`](functions/routes/ecom) path **MUST BE PRIVATE** (trey are by default), accessible only for E-Com Plus official servers or with `X-Operator-Token` header (equal to `SERVER_OPERATOR_TOKEN` env).
+
+Requests to E-Com routes must have `X-Store-ID` header or `store_id` parameter on URL query string.
+
+#### [`auth-callback`](functions/routes/ecom/auth-callback.js)
+
+Handle [authentication callback request](https://developers.e-com.plus/docs/api/#/store/authenticate-app/authenticate-app) and save tokens to database, also create Store API procedures if configured.
+
+> You can edit it to send custom requests to external server notifying new store installation or setup.
+
+#### [`get-auth`](functions/routes/ecom/get-auth.js)
+
+Returns Store API authentication data based on received Store ID, for external usage.
+
+Sample response:
+
+```json
+{
+  "application_id": "a00000000000000000000012",
+  "application_app_id": 9000,
+  "store_id": 1011,
+  "authentication_id": "120000000000000000000012",
+  "access_token": "eyJhbGciOi.eyYzdWIi.ZEONFh7HgQ"
+}
+```
+
+> You should use it if you want to use this boilerplate as an _authentication backend_ only. By getting this data with HTTP GET you'll be able to run authenticated requests to [Store API](https://developers.e-com.plus/docs/api/#/store/) from your own server, using with your preferred language, framework...
+
+#### [`refresh-tokens`](functions/routes/ecom/refresh-tokens.js)
+
+Call update service to start refreshing old access tokens.
+
+#### [`webhook`](functions/routes/ecom/webhook.js)
+
+Receives E-Com Plus notification POSTs for configured procedures.
+
+> You may want to edit it to properly treat trigger body and do your custom stuff for each notification type.
+
+#### [`modules/*`](functions/routes/ecom/modules.js)
+
+Endpoints for [E-Com Plus Mods API](https://developers.e-com.plus/modules-api/).
+
+> You should edit the respective ones for enabled modules (on `ecom.config.js`).
+
+### Additional Store API handlers
+
+If the app works with `admin_settings` (configuration), use [`getAppData`](functions/lib/store-api/get-app-data.js) to get the application `data`/`hidden_data` configured by merchant from dashboard through Store API ([Application object](https://developers.e-com.plus/docs/api/#/store/applications/)).
+
+We recommend treating Store API clients (40x) and server (50x) errors with [`errorHandling`](functions/lib/store-api/error-handling.js) abstraction.
+
+### Application SDK
+
+You may want to use [`appSdk`](https://github.com/ecomplus/application-sdk) to make custom authenticated requests to [Store API](https://developers.e-com.plus/docs/api/#/store/) or deep coding out of our examples.
+
+### Custom scripts
 
 - Add custom web app routes by creating new files to [`functions/routes`](functions/routes) folder;
 
