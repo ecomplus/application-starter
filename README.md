@@ -64,7 +64,7 @@ Sample response:
 }
 ```
 
-> You should consume it if you want to use this boilerplate as an _authentication backend_ only. By getting this data (HTTP GET) you'll be able to run authenticated requests to [Store API](https://developers.e-com.plus/docs/api/#/store/) from your own server, using with your preferred language, framework...
+> You should consume it if you want to use this boilerplate as an _authentication backend_ only. By getting this data (HTTP GET) you'll be able to run authenticated requests to [Store API](https://developers.e-com.plus/docs/api/#/store/) from your own server, with your preferred language, framework...
 
 #### [`refresh-tokens`](functions/routes/ecom/refresh-tokens.js)
 
