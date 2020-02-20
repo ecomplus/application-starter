@@ -1,7 +1,7 @@
 // handle Store API errors
 const errorHandling = require('./error-handling')
 
-module.exports = ({ appSdk, storeId, auth }, getHiddenData) => {
+module.exports = ({ appSdk, storeId, auth }, getHiddenData = true) => {
   // read configured options from app data
   // https://developers.e-com.plus/docs/api/#/store/applications/applications
   let apiRequest
