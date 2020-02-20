@@ -2,7 +2,7 @@
 
 ![Deploy](https://github.com/ecomplus/application-starter/workflows/Deploy/badge.svg) ![Call refresh tokens](https://github.com/ecomplus/application-starter/workflows/Call%20refresh%20tokens/badge.svg) [![CodeFactor](https://www.codefactor.io/repository/github/ecomplus/storefront-starter/badge)](https://www.codefactor.io/repository/github/ecomplus/storefront-starter) [![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Boilerplate for E-Com Plus apps with [Firebase](https://firebase.google.com/) Cloud Functions and GitHub Actions.
+:dog: Boilerplate for E-Com Plus apps with [Firebase](https://firebase.google.com/) Cloud Functions and GitHub Actions.
 
 [CHANGELOG](https://github.com/ecomplus/application-starter/blob/master/CHANGELOG.md)
 
@@ -102,7 +102,7 @@ You may want to use [`appSdk`](https://github.com/ecomplus/application-sdk) to m
 
 ## Examples
 
-:sunglasses: [Awesome E-Com Plus applications](https://github.com/ecomplus/awesome#applications)
+:sunglasses: [Awesome E-Com Plus applications](https://github.com/ecomplus/awesome#applications) to get inspired!
 
 ## Continuous integration
 
