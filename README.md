@@ -76,7 +76,7 @@ Receives E-Com Plus notification POSTs for configured procedures.
 
 > You may want to edit it to properly treat trigger body and do your custom stuff for each notification type.
 
-#### [`modules/*`](functions/routes/ecom/modules.js)
+#### [`modules/*`](functions/routes/ecom/modules)
 
 Endpoints for [E-Com Plus Mods API](https://developers.e-com.plus/modules-api/).
 
@@ -84,13 +84,13 @@ Endpoints for [E-Com Plus Mods API](https://developers.e-com.plus/modules-api/).
 
 ### Additional Store API handlers
 
-If the app works with `admin_settings` (configuration), use [`getAppData`](functions/lib/store-api/get-app-data.js) to get the application `data`/`hidden_data` configured by merchant from dashboard through Store API ([Application object](https://developers.e-com.plus/docs/api/#/store/applications/)).
+If the app works with `admin_settings` (configuration), use [`getAppData`](functions/lib/store-api/get-app-data.js) to get the application `data`/`hidden_data` configured by merchant from dashboard through Store API ([Application Object](https://developers.e-com.plus/docs/api/#/store/applications/)).
 
 We recommend treating Store API clients (40x) and server (50x) errors with [`errorHandling`](functions/lib/store-api/error-handling.js) abstraction.
 
 ### Application SDK
 
-You may want to use [`appSdk`](https://github.com/ecomplus/application-sdk) to make custom authenticated requests to [Store API](https://developers.e-com.plus/docs/api/#/store/) or deep coding out of our examples.
+You may want to use [`appSdk`](https://github.com/ecomplus/application-sdk) to make custom authenticated requests to [Store API](https://developers.e-com.plus/docs/api/#/store/) or deeper coding out of our examples.
 
 ### Custom scripts
 
