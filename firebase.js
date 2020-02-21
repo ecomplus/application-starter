@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const { name, version } = require('./package.json')
 
 const {
@@ -9,13 +11,6 @@ const {
   APP_ID,
   APP_TITLE
 } = process.env
-
-if (!FIREBASE_TOKEN || !SERVER_OPERATOR_TOKEN) {
-  const env = require('dotenv').config()
-  if (env.error) {
-    throw env.error
-  }
-}
 
 let project = FIREBASE_PROJECT_ID
 if (!project) {
