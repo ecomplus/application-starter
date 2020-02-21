@@ -1,8 +1,9 @@
 {
   "app_id": 9000,
   "title": "My Awesome E-Com Plus App",
-  "state": "active",
+  "slug": "my-awesome-app",
   "type": "external",
+  "state": "active",
   "authentication": true,
   "modules": {},
   "auth_scope": {
@@ -26,6 +27,5 @@
     "products/variations/price": []
   },
   "auth_callback_uri": "https://us-central1-ecom-app-boilerplate.cloudfunctions.net/app/ecom/auth-callback",
-  "version": "1.0.0",
-  "slug": "ecomplus-application-starter"
+  "version": "1.0.0"
 }
