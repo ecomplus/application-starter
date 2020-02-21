@@ -55,18 +55,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Write README with base URI
+        env:
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+        run: |
+          echo "App base URI: https://us-central1-$FIREBASE_PROJECT_ID.cloudfunctions.net/app/" \
+            > ./assets/README
+
       - name: Run Wget and write to JSON file
         env:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
         run: |
-          wget -O ./functions/assets/app.json \
+          wget -O ./assets/app.json \
             https://us-central1-$FIREBASE_PROJECT_ID.cloudfunctions.net/app/
 
       - name: Commit local file changes
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
-          git add ./functions/assets/
+          git add ./assets/
           git diff-index --quiet HEAD || git commit -m 'chore(app.json): update application body [skip ci]'
 
       - name: Push changes
