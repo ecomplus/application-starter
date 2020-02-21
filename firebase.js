@@ -6,9 +6,7 @@ const {
   FIREBASE_TOKEN,
   FIREBASE_PROJECT_ID,
   SERVER_OPERATOR_TOKEN,
-  SERVER_BASE_URI,
-  APP_ID,
-  APP_TITLE
+  SERVER_BASE_URI
 } = process.env
 
 let project = FIREBASE_PROJECT_ID
@@ -31,12 +29,6 @@ const config = [
 if (SERVER_BASE_URI) {
   config.push(`server.base_uri=${SERVER_BASE_URI}`)
 }
-if (APP_ID) {
-  config.push(`app.app_id=${APP_ID}`)
-}
-if (APP_TITLE) {
-  config.push(`app.title=${APP_TITLE}`)
-}
 
 client.functions.config.set(config, { project })
   .then(() => {
@@ -47,6 +39,7 @@ client.functions.config.set(config, { project })
       force: true
     }).then(() => {
       console.log(`Deployed with success to Firebase project '${project}'`)
+      console.log(SERVER_BASE_URI || `https://us-central1-${project}.cloudfunctions.net/app/`)
     })
   })
   .catch(err => {
