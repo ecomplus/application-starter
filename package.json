@@ -5,8 +5,8 @@
   "description": "Boilerplate for E-Com Plus apps with Firebase Cloud Functions",
   "main": "functions/index.js",
   "scripts": {
-    "serve": "FIREBASE_COMMAND=serve node ./firebase.js",
-    "deploy": "NODE_ENV=production FIREBASE_COMMAND=deploy node ./firebase.js",
+    "serve": "echo 'Firebase runs with legacy Node.js 8; Use `npm run deploy` instead.'",
+    "deploy": "NODE_ENV=production node ./firebase.js",
     "release": "standard-version",
     "release:starter": "standard-version --prerelease starter"
   },
