@@ -1,6 +1,6 @@
 {
-  "app_id": 9000,
-  "title": "Firebase Boilerplate",
+  "app_id": "9001",
+  "title": "My E-Com Plus App",
   "state": "active",
   "type": "external",
   "authentication": true,
