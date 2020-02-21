@@ -17,12 +17,26 @@ if (baseUri) {
   }
 }
 
-// set version and slug from root package
-if (pkg.version && !app.version) {
+// set version same as root package
+if (!app.version && pkg.version) {
   app.version = pkg.version.replace(/-.*/, '')
 }
-if (pkg.name && (!app.slug || (app.slug !== 'my-awesome-app' && !pkg.name.startsWith('@ecomplus')))) {
-  app.slug = pkg.name.replace('/', '-').replace(/[^0-9a-z-]/ig, '')
+// generate slug from package name or app title if not set or default
+if (!app.slug || app.slug === 'my-awesome-app') {
+  if (pkg.name && !pkg.name.endsWith('application-starter')) {
+    app.slug = pkg.name.replace('/', '-').replace(/[^0-9a-z-]/ig, '')
+  } else {
+    // replace accents on title
+    app.slug = app.title.toLowerCase()
+      .replace(/[^áâãà]/g, 'a')
+      .replace(/[^éê]/g, 'e')
+      .replace(/[^íî]/g, 'i')
+      .replace(/[^óôõ]/g, 'o')
+      .replace(/[^ú]/g, 'u')
+      .replace(/[^ç]/g, 'c')
+      .replace(/\s/g, '-')
+      .replace(/[^0-9a-z-]/g, '')
+  }
 }
 
 module.exports = (req, res) => {
