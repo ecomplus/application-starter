@@ -16,10 +16,16 @@
   },
   "keywords": [
     "ecomplus",
+    "store-api",
     "ecomplus-app",
     "boilerplate",
-    "express-app",
-    "app-boilerplate"
+    "app-boilerplate",
+    "ecommerce-apps",
+    "firebase-functions",
+    "firestore",
+    "authentication-backend",
+    "integration-flow",
+    "express-app"
   ],
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
