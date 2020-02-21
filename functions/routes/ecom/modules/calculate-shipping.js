@@ -1,12 +1,9 @@
 exports.post = ({ appSdk }, req, res) => {
   /**
    * Treat `params` and (optionally) `application` from request body to properly mount the `response`.
-   *
-   * `params` object JSON Schema reference:
-   * https://apx-mods.e-com.plus/api/v1/calculate_shipping/schema.json?store_id=100
-   *
-   * `response` object JSON Schema reference:
-   * https://apx-mods.e-com.plus/api/v1/calculate_shipping/response_schema.json?store_id=100
+   * JSON Schema reference for Calculate Shipping module objects:
+   * `params`: https://apx-mods.e-com.plus/api/v1/calculate_shipping/schema.json?store_id=100
+   * `response`: https://apx-mods.e-com.plus/api/v1/calculate_shipping/response_schema.json?store_id=100
    */
 
   const { params, application } = req.body
