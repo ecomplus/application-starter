@@ -1,0 +1,31 @@
+name: Init repository
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    name: Prepare repo after generation
+    runs-on: ubuntu-latest
+    if: startsWith(github.event.head_commit.message, 'Initial commit')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Remove LICENSE and generate app ID
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          rm ./LICENSE
+          rm ./.github/workflows/init-repository.yml
+          sed -i "s/9000/$(( 100000 + RANDOM % 800000 ))/g" ./functions/ecom.config.js
+          git commit -am "chore(init): remove default license and generate \`app_id\` [skip ci]"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
