@@ -28,12 +28,12 @@ if (!app.slug || app.slug === 'my-awesome-app') {
   } else {
     // replace accents on title
     app.slug = app.title.toLowerCase()
-      .replace(/[^áâãà]/g, 'a')
-      .replace(/[^éê]/g, 'e')
-      .replace(/[^íî]/g, 'i')
-      .replace(/[^óôõ]/g, 'o')
-      .replace(/[^ú]/g, 'u')
-      .replace(/[^ç]/g, 'c')
+      .replace(/[áâãà]/g, 'a')
+      .replace(/[éê]/g, 'e')
+      .replace(/[íî]/g, 'i')
+      .replace(/[óôõ]/g, 'o')
+      .replace(/[ú]/g, 'u')
+      .replace(/[ç]/g, 'c')
       .replace(/\s/g, '-')
       .replace(/[^0-9a-z-]/g, '')
   }
