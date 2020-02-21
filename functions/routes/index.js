@@ -17,10 +17,6 @@ if (baseUri) {
   }
 }
 
-// set version same as root package
-if (!app.version && pkg.version) {
-  app.version = pkg.version.replace(/-.*/, '')
-}
 // generate slug from package name or app title if not set or default
 if (!app.slug || app.slug === 'my-awesome-app') {
   if (pkg.name && !pkg.name.endsWith('application-starter')) {
@@ -34,9 +30,15 @@ if (!app.slug || app.slug === 'my-awesome-app') {
       .replace(/[óôõ]/g, 'o')
       .replace(/[ú]/g, 'u')
       .replace(/[ç]/g, 'c')
+      .replace(/-/g, '')
       .replace(/\s/g, '-')
       .replace(/[^0-9a-z-]/g, '')
   }
+}
+
+// set version same as root package
+if (!app.version && pkg.version) {
+  app.version = pkg.version.replace(/-.*/, '')
 }
 
 module.exports = (req, res) => {
