@@ -1,36 +1,31 @@
-const { baseUri, app, pkg } = require('./../__env')
+const { baseUri, pkg } = require('./../__env')
 
 // configured base app body
-const baseApp = require('./../ecom.config').app
-
-if (app) {
-  // merge with app from Function config
-  Object.assign(baseApp, app)
-}
+const { app } = require('./../ecom.config')
 
 if (baseUri) {
   // fix endpoints with current function URIs on app body
-  if (!baseApp.auth_callback_uri) {
-    baseApp.auth_callback_uri = `${baseUri}/ecom/auth-callback`
+  if (!app.auth_callback_uri) {
+    app.auth_callback_uri = `${baseUri}/ecom/auth-callback`
   }
-  if (baseApp.modules) {
-    Object.keys(baseApp.modules).forEach(modName => {
-      if (baseApp.modules[modName] && !baseApp.modules[modName].endpoint) {
-        baseApp.modules[modName].endpoint = `${baseUri}/ecom/modules/${modName}`
+  if (app.modules) {
+    Object.keys(app.modules).forEach(modName => {
+      if (app.modules[modName] && !app.modules[modName].endpoint) {
+        app.modules[modName].endpoint = `${baseUri}/ecom/modules/${modName}`
       }
     })
   }
 }
 
 // set version and slug from root package
-if (!baseApp.version && pkg.version) {
-  baseApp.version = pkg.version.replace(/-.*/, '')
+if (!app.version && pkg.version) {
+  app.version = pkg.version.replace(/-.*/, '')
 }
-if (!baseApp.slug && pkg.name) {
-  baseApp.slug = pkg.name.replace('/', '-').replace(/[^0-9a-z-]/ig, '')
+if (!app.slug && pkg.name) {
+  app.slug = pkg.name.replace('/', '-').replace(/[^0-9a-z-]/ig, '')
 }
 
 module.exports = (req, res) => {
   // showing app info on root route
-  res.send(baseApp)
+  res.send(app)
 }

@@ -1,5 +1,5 @@
 // setup server and app options from Functions config (and mocks)
-const { pkg, server, app } = require('firebase-functions').config()
+const { pkg, server } = require('firebase-functions').config()
 const functionName = server.functionName || 'app'
 
 module.exports = {
@@ -9,8 +9,5 @@ module.exports = {
     `https://us-central1-${process.env.GCLOUD_PROJECT}.cloudfunctions.net/${functionName}`,
   pkg: {
     ...pkg
-  },
-  app: {
-    ...app
   }
 }
