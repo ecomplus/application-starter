@@ -110,7 +110,7 @@ Every commit will trigger a new **deploy** (with [GitHub Actions](.github/workfl
 
 `https://us-central1-<project-id>.cloudfunctions.net/app/` :blush:
 
-The `functions/assets/app.json` will be updated automatically with some package info and current Cloud Function endpoints, you can use it as body to [_Create new Application_](https://developers.e-com.plus/docs/api/#/store/applications/new-application) on Store API;
+The `assets/application.json` will be updated automatically with some package info and current Cloud Function endpoints, you can use it as body to [_Create new Application_](https://developers.e-com.plus/docs/api/#/store/applications/new-application) on Store API.
 
 > You can skip deploy workflow by adding `[skip ci]` to the commit message.
 
