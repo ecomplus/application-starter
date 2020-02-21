@@ -28,10 +28,8 @@
   },
   "homepage": "https://github.com/ecomplus/application-starter#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "firebase-tools": "^7.13.0"
-  },
-  "optionalDependencies": {
-    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
