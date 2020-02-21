@@ -15,8 +15,7 @@ exports.post = ({ appSdk }, req, res) => {
         /**
          * You may also want to send request to external server here:
 
-        const axios = require('axios').post()
-        return axios.post(`https://yourserver.com/new-ecom-store?store_id=${storeId}`, {
+        return require('axios').post(`https://yourserver.com/new-ecom-store?store_id=${storeId}`, {
           store_id: storeId,
           authentication_id: authenticationId
         })
@@ -39,8 +38,7 @@ exports.post = ({ appSdk }, req, res) => {
                * You may want additional request to your server with tokens after store setup:
 
               .then(() => {
-                const axios = require('axios').post()
-                return axios.post(`https://yourserver.com/ecom-store-setup?store_id=${storeId}`, {
+                return require('axios').post(`https://yourserver.com/ecom-store-setup?store_id=${storeId}`, {
                   store_id: storeId,
                   authentication_id: authenticationId,
                   access_token: auth.accessToken
