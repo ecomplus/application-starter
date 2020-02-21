@@ -128,7 +128,9 @@ cd functions
 npm i
 ```
 
-Then you can call `npm run serve` from project root to test the function locally before deploy.
+Then you can call `npm run deploy` locally getting configuration from `.env` file on project root.
+
+You can also set a different `FIREBASE_PROJECT_ID` locally for test purpose only.
 
 ### Firebase tools
 
