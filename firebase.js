@@ -3,7 +3,6 @@ require('dotenv').config()
 const { name, version } = require('./package.json')
 
 const {
-  FIREBASE_COMMAND,
   FIREBASE_TOKEN,
   FIREBASE_PROJECT_ID,
   SERVER_OPERATOR_TOKEN,
@@ -41,7 +40,7 @@ if (APP_TITLE) {
 
 client.functions.config.set(config, { project })
   .then(() => {
-    return client[FIREBASE_COMMAND || 'serve']({
+    return client.deploy({
       project,
       only: 'functions',
       token: FIREBASE_TOKEN,
