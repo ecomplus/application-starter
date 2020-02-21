@@ -8,8 +8,9 @@
 const app = {
   app_id: 9000,
   title: 'My Awesome E-Com Plus App',
-  state: 'active',
+  slug: 'my-awesome-app',
   type: 'external',
+  state: 'active',
   authentication: true,
 
   /**

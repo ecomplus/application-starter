@@ -18,10 +18,10 @@ if (baseUri) {
 }
 
 // set version and slug from root package
-if (!app.version && pkg.version) {
+if (pkg.version && !app.version) {
   app.version = pkg.version.replace(/-.*/, '')
 }
-if (!app.slug && pkg.name) {
+if (pkg.name && (!app.slug || (app.slug !== 'my-awesome-app' && !pkg.name.startsWith('@ecomplus')))) {
   app.slug = pkg.name.replace('/', '-').replace(/[^0-9a-z-]/ig, '')
 }
 
