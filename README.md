@@ -99,16 +99,16 @@ You may want to use [`appSdk`](https://github.com/ecomplus/application-sdk) to m
 - Add custom web app routes by creating new files to [`functions/routes`](functions/routes) folder;
 - Add new methods/handlers at [`functions/lib`](functions/lib) folder;
 
-### Optional setup for [E-Com Plus Market](https://market.e-com.plus/)
+### Optional setup for [Market](https://market.e-com.plus/)
 
-You may want to make your app public and available to install within E-Com Plus dashboard, to do so:
+You may want to make your app public and available to install within E-Com Plus dashboard, to do this:
 
-- Take note about [publication](#publication);
 - Edit [`ecomplus-market.json`](ecomplus-market.json) to set a short description and category between _shipping_, _sales_, _tools_, _customer-service_, _marketing_ or _inventory_;
 - Overwrite the default PNG icon at [`functions/public/icon.png`](functions/public/icon.png);
 - Write a good markdown description for the app at [`functions/public/description.md`](functions/public/description.md);
+- Take note about [publication](#publication);
 
-> If you are not yet an E-Com Plus partner, start by filling out [this form](https://docs.google.com/forms/d/e/1FAIpQLSfd8uUsMG6N_rSFi2blGuk3Rfqi_BPp6fxschkmkdhEBVDsyw/viewform).
+> If you are not yet a registered partner, start by filling out [this form](https://docs.google.com/forms/d/e/1FAIpQLSfd8uUsMG6N_rSFi2blGuk3Rfqi_BPp6fxschkmkdhEBVDsyw/viewform) and wait a little for our response :handshake:
 
 ## Examples
 
