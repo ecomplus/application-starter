@@ -28,7 +28,6 @@ firebase login:ci
     - `FIREBASE_TOKEN`: The token generated with `firebase-tools`;
     - `SERVER_OPERATOR_TOKEN`: Random (at least 16 bytes) admin token generated from CLI or [here](https://randomkeygen.com/);
     - `MARKET_TOKEN` (optional): Your E-Com Plus Market [personal token](https://market.e-com.plus/partners/account) to publish the app automatically;
-    - `MARKET_CATEGORY` (optional): `shipping`, `sales`, `tools`, `customer-service`, `marketing` or `inventory`;
 
 ## Next steps
 
@@ -97,10 +96,19 @@ You may want to use [`appSdk`](https://github.com/ecomplus/application-sdk) to m
 ### Custom integration scripts
 
 - Add third party libraries to [`functions/package.json`](functions/package.json) dependencies;
-
 - Add custom web app routes by creating new files to [`functions/routes`](functions/routes) folder;
-
 - Add new methods/handlers at [`functions/lib`](functions/lib) folder;
+
+### Optional setup for [E-Com Plus Market](https://market.e-com.plus/)
+
+You may want to make your app public and available to install within E-Com Plus dashboard, to do so:
+
+- Take note about [publication](#publication);
+- Edit [`ecomplus-market.json`](ecomplus-market.json) to set a short description and category between _shipping_, _sales_, _tools_, _customer-service_, _marketing_ or _inventory_;
+- Overwrite the default PNG icon at [`functions/public/icon.png`](functions/public/icon.png);
+- Write a good markdown description for the app at [`functions/public/description.md`](functions/public/description.md);
+
+> If you are not yet an E-Com Plus partner, start by filling out [this form](https://docs.google.com/forms/d/e/1FAIpQLSfd8uUsMG6N_rSFi2blGuk3Rfqi_BPp6fxschkmkdhEBVDsyw/viewform).
 
 ## Examples
 
@@ -118,9 +126,9 @@ The `assets/application.json` will be updated automatically with some package in
 
 Also, your app's access tokens to Store API will be **automatically refreshed** every 8 hours by scheduled workflow.
 
-### Publishing
+### Publication
 
-If `MARKET_TOKEN` and `MARKET_CATEGORY` secrets are set, the app will be **automatically published to [Market](https://market.e-com.plus/)** every time `assets/application.json` is changed, then merchants will be able to install it within E-Com Plus dashboard.
+If `MARKET_TOKEN` secret is set, the app will be **automatically published to [Market](https://market.e-com.plus/)** every time `assets/application.json` is changed, then merchants will be able to install it.
 
 ## Developing and testing locally
 
