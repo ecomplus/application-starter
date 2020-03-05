@@ -6,10 +6,10 @@
   "main": "functions/index.js",
   "scripts": {
     "serve": "echo 'Firebase runs with legacy Node.js 8; Use `npm run deploy` instead.'",
-    "deploy": "NODE_ENV=production node ./scripts/firebase.js",
+    "deploy": "NODE_ENV=production node ./scripts/firebase-deploy.js",
     "release": "standard-version",
     "release:starter": "standard-version --prerelease starter",
-    "publish:market": "node ./scripts/publish-market.js"
+    "publish:market": "node ./scripts/market-publication.js"
   },
   "repository": {
     "type": "git",
