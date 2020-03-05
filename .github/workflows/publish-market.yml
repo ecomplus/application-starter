@@ -3,7 +3,7 @@ name: Publish application in market
 on:
   push:
     paths:
-      - "assets/applications.json"
+      - 'assets/application.json'
 
 jobs:
   pulish-market:
