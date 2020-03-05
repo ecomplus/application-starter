@@ -1,24 +1,13 @@
 require('dotenv').config()
 
-const { name, version } = require('../package.json')
-
 const {
   FIREBASE_TOKEN,
-  FIREBASE_PROJECT_ID,
   SERVER_OPERATOR_TOKEN,
   SERVER_BASE_URI
 } = process.env
 
-let project = FIREBASE_PROJECT_ID
-if (!project) {
-  try {
-    const firebaserc = require('../.firebaserc')
-    project = firebaserc.projects.default
-  } catch (e) {
-    project = 'ecom-app'
-  }
-}
-
+const { name, version } = require('../package.json')
+const { project, baseUri } = require('./_constants')
 const client = require('firebase-tools')
 
 const config = [
@@ -45,7 +34,7 @@ client.functions.config.set(config, { project })
     )
     console.log(
       '\x1b[35m%s\x1b[0m',
-      `\nBase URI: ${(SERVER_BASE_URI || `https://us-central1-${project}.cloudfunctions.net/app/`)}`
+      `\nBase URI: ${baseUri}`
     )
     console.log()
   })
