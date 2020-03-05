@@ -27,8 +27,8 @@ firebase login:ci
     - `FIREBASE_PROJECT_ID`: The ID (name) of your Firebase project;
     - `FIREBASE_TOKEN`: The token generated with `firebase-tools`;
     - `SERVER_OPERATOR_TOKEN`: Random (at least 16 bytes) admin token generated from CLI or [here](https://randomkeygen.com/);
-    - `MARKET_TOKEN` (optional): Your [E-Com Plus Market](https://market.e-com.plus/) personal token to publish the app automatically, get it from [partner account page](https://market.e-com.plus/partners/account);
-    - `MARKET_CATEGORY` (optional): App category between `shipping`, `sales`, `tools`, `customer-service`, `marketing` and `inventory`;
+    - `MARKET_TOKEN` (optional): Your E-Com Plus Market [personal token](https://market.e-com.plus/partners/account) to publish the app automatically;
+    - `MARKET_CATEGORY` (optional): `shipping`, `sales`, `tools`, `customer-service`, `marketing` or `inventory`;
 
 ## Next steps
 
