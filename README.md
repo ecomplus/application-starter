@@ -120,7 +120,7 @@ Also, your app's access tokens to Store API will be **automatically refreshed** 
 
 ### Publishing
 
-If `MARKET_TOKEN` and `MARKET_CATEGORY` secrets (or env) are set, the app will be automatically published to [Market](https://market.e-com.plus/) every time `assets/application.json` is changed, then merchants will be able to install it within E-Com Plus dashboard.
+If `MARKET_TOKEN` and `MARKET_CATEGORY` secrets are set, the app will be automatically published to [Market](https://market.e-com.plus/) every time `assets/application.json` is changed, then merchants will be able to install it within E-Com Plus dashboard.
 
 ## Developing and testing locally
 
