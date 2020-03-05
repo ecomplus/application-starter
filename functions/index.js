@@ -120,5 +120,7 @@ recursiveReadDir(routesDir).filter(filepath => filepath.endsWith('.js')).forEach
 })
 
 server.use(router)
+server.use(express.static('public'))
+
 exports[functionName] = functions.https.onRequest(server)
 console.log(`Starting '${app.title}' E-Com Plus app with Cloud Function '${functionName}'`)
