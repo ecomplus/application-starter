@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-const { name, version } = require('./package.json')
+const { name, version } = require('../package.json')
 
 const {
   FIREBASE_TOKEN,
@@ -12,7 +12,7 @@ const {
 let project = FIREBASE_PROJECT_ID
 if (!project) {
   try {
-    const firebaserc = require('./.firebaserc')
+    const firebaserc = require('../.firebaserc')
     project = firebaserc.projects.default
   } catch (e) {
     project = 'ecom-app'
