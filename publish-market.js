@@ -10,12 +10,18 @@ if (!MARKET_TOKEN) {
 
 const { title, slug } = storeApp
 
-const data = JSON.stringify({
+let data = {
   title,
   slug,
   category: 'all',
   store_app: storeApp
-})
+}
+
+if (storeApp.app_id) {
+  data.id = storeApp.app_id
+}
+
+data = JSON.stringify(data)
 
 const opt = {
   hostname: 'market.e-com.plus',
