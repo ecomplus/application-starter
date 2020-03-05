@@ -9,7 +9,6 @@ jobs:
   pulish-market:
     name: Publish app to E-Com Plus Market
     runs-on: ubuntu-latest
-    if: ${{ secrets.MARKET_TOKEN }}
 
     steps:
       - name: Checkout
