@@ -1,7 +1,7 @@
 {
   "app_id": 9000,
   "title": "My Awesome E-Com Plus App",
-  "slug": "my-awesome-ecom-plus-app-V1",
+  "slug": "my-awesome-ecom-plus-app-V2",
   "type": "external",
   "state": "active",
   "authentication": true,
