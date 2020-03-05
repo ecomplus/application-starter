@@ -103,7 +103,7 @@ You may want to use [`appSdk`](https://github.com/ecomplus/application-sdk) to m
 
 You may want to make your app public and available to install within E-Com Plus dashboard, to do this:
 
-- Edit [`ecomplus-market.json`](ecomplus-market.json) to set a short description and category between _shipping_, _sales_, _tools_, _customer-service_, _marketing_ or _inventory_;
+- Edit [`ecomplus-market.json`](ecomplus-market.json) to set a short description and category between _shipping_, _sales_, _tools_, _customer-service_, _marketing_, _inventory_ or _product-sourcing_;
 - Overwrite the default PNG icon at [`functions/public/icon.png`](functions/public/icon.png);
 - Write a good markdown description for the app at [`functions/public/description.md`](functions/public/description.md);
 - Take note about [publication](#publication);
