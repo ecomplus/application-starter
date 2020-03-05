@@ -6,7 +6,7 @@ on:
       - 'assets/application.json'
 
 jobs:
-  pulish-market:
+  pulish:
     name: Publish app to E-Com Plus Market
     runs-on: ubuntu-latest
 
