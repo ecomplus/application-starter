@@ -118,6 +118,10 @@ The `assets/application.json` will be updated automatically with some package in
 
 Also, your app's access tokens to Store API will be **automatically refreshed** every 8 hours by scheduled workflow.
 
+### Publishing
+
+If `MARKET_TOKEN` and `MARKET_CATEGORY` secrets (or env) are set, the app will be automatically published to [Market](https://market.e-com.plus/) every time `assets/application.json` is changed, then merchants will be able to install it within E-Com Plus dashboard.
+
 ## Developing and testing locally
 
 Setup the project normally by cloning your repository and installing npm dependencies:
@@ -130,9 +134,9 @@ cd functions
 npm i
 ```
 
-Then you can call `npm run deploy` locally getting configuration from `.env` file on project root.
+Then you can call `npm run deploy` locally getting configuration from `.env` file on project root. You can also set a different `FIREBASE_PROJECT_ID` locally for test purpose only.
 
-You can also set a different `FIREBASE_PROJECT_ID` locally for test purpose only.
+When you're done, you can publish the app by running `npm run publish:market`.
 
 ### Firebase tools
 
