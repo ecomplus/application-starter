@@ -23,5 +23,4 @@ jobs:
       - name: Run publish script
         env:
           MARKET_TOKEN: ${{ secrets.MARKET_TOKEN }}
-          MARKET_CATEGORY: ${{ secrets.MARKET_CATEGORY }}
-        run: "MARKET_TOKEN=$MARKET_TOKEN MARKET_CATEGORY=$MARKET_CATEGORY npm run publish:market"
+        run: "MARKET_TOKEN=$MARKET_TOKEN npm run publish:market"
