@@ -8,7 +8,8 @@
     "serve": "echo 'Firebase runs with legacy Node.js 8; Use `npm run deploy` instead.'",
     "deploy": "NODE_ENV=production node ./firebase.js",
     "release": "standard-version",
-    "release:starter": "standard-version --prerelease starter"
+    "release:starter": "standard-version --prerelease starter",
+    "publish:market": "node ./publish-market.js"
   },
   "repository": {
     "type": "git",
