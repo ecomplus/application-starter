@@ -128,7 +128,7 @@ Also, your app's access tokens to Store API will be **automatically refreshed** 
 
 ### Publication
 
-If `MARKET_TOKEN` secret is set, the app will be **automatically published to [Market](https://market.e-com.plus/)** every time `assets/application.json` is changed, then merchants will be able to install it.
+If `MARKET_TOKEN` secret is set, the app will be **automatically published to [Market](https://market.e-com.plus/)** every time `assets/application.json` is changed, then merchants will be able to install it with up to date version.
 
 ## Developing and testing locally
 
