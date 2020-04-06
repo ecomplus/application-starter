@@ -11,7 +11,7 @@ if (baseUri) {
   if (app.modules) {
     Object.keys(app.modules).forEach(modName => {
       if (app.modules[modName] && !app.modules[modName].endpoint) {
-        app.modules[modName].endpoint = `${baseUri}/ecom/modules/${modName}`
+        app.modules[modName].endpoint = `${baseUri}/ecom/modules/${modName.replace(/_/g, '-')}`
       }
     })
   }

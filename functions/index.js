@@ -89,7 +89,7 @@ recursiveReadDir(routesDir).filter(filepath => filepath.endsWith('.js')).forEach
     default:
       if (filename.startsWith('/ecom/modules/')) {
         // check if module is enabled
-        const modName = filename.split('/').pop()
+        const modName = filename.split('/').pop().replace(/-/g, '_')
         if (!app.modules || !app.modules[modName] || app.modules[modName].enabled === false) {
           return
         }
