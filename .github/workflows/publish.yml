@@ -40,5 +40,6 @@ jobs:
 
       - name: Run publish script
         env:
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
           MARKET_TOKEN: ${{ secrets.MARKET_TOKEN }}
-        run: "MARKET_TOKEN=$MARKET_TOKEN npm run publish:market"
+        run: "npm run publish:market"
