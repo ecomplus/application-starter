@@ -1,5 +1,6 @@
 require('dotenv').config()
 
+const path = require('path')
 const { MARKET_TOKEN } = process.env
 
 if (!MARKET_TOKEN) {
@@ -21,11 +22,12 @@ app.store_app = storeApp
   }
 })
 
-if (fs.existsSync('../functions/public/icon.png')) {
+const dirPublic = path.resolve(__dirname, '../functions/public')
+if (fs.existsSync(path.resolve(dirPublic, 'icon.png'))) {
   app.icon = `${baseUri}icon.png`
 }
 try {
-  app.description = fs.readFileSync('../functions/public/description.md', 'utf8')
+  app.description = fs.readFileSync(path.resolve(dirPublic, 'description.md'), 'utf8')
 } catch (e) {
   app.description = `
 # ${app.title}
