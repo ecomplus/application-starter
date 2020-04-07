@@ -35,6 +35,9 @@ ${app.short_description}
 `
 }
 
+console.log('New app data:')
+console.log(JSON.stringify(app, null, 2))
+
 const req = https.request({
   hostname: 'market.e-com.plus',
   port: 443,
