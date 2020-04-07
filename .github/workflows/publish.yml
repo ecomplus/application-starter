@@ -9,6 +9,8 @@ on:
       - 'ecomplus-market.json'
       - 'functions/public/description.md'
       - 'functions/public/icon.png'
+      - 'scripts/_constants.js'
+      - 'scripts/market-publication.js'
 
 jobs:
   pulish:
