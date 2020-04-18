@@ -16,6 +16,7 @@ jobs:
   pulish:
     name: Publish app to E-Com Plus Market
     runs-on: ubuntu-latest
+    if: github.repository != 'ecomplus/application-starter'
 
     steps:
       - name: Checkout
