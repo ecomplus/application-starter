@@ -6,6 +6,8 @@ const {
   SERVER_BASE_URI
 } = process.env
 
+require('./scripts-minification')
+
 const { name, version } = require('../package.json')
 const { project, baseUri } = require('./_constants')
 const client = require('firebase-tools')
