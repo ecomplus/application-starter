@@ -6,6 +6,8 @@ on:
       - master
     paths:
       - 'functions/**'
+      - '!functions/public/*.js'
+      - 'functions/public/*.min.js'
       - 'scripts/_constants.js'
       - 'scripts/firebase-deploy.js'
       - '*.json'
