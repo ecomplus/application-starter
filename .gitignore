@@ -1,3 +1,5 @@
+functions/public/*.min.js
+
 # Logs
 logs
 *.log
