@@ -37,13 +37,13 @@
   "homepage": "https://github.com/ecomplus/application-starter#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "firebase-tools": "^8.0.1",
+    "firebase-tools": "^8.0.2",
     "uglify-js": "^3.9.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "husky": "^4.2.3",
+    "husky": "^4.2.5",
     "standard": "^14.3.3",
     "standard-version": "^7.1.0"
   },
