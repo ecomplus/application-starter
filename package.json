@@ -6,6 +6,7 @@
   "main": "functions/index.js",
   "scripts": {
     "serve": "echo 'Firebase runs with legacy Node.js 8; Use `npm run deploy` instead.'",
+    "prepare:minify": "node ./scripts/scripts-minification.js",
     "deploy": "NODE_ENV=production node ./scripts/firebase-deploy.js",
     "release": "standard-version",
     "release:starter": "standard-version --prerelease starter",
@@ -36,7 +37,8 @@
   "homepage": "https://github.com/ecomplus/application-starter#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "firebase-tools": "^8.0.1"
+    "firebase-tools": "^8.0.1",
+    "uglify-js": "^3.9.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
