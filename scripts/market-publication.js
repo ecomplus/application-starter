@@ -14,6 +14,10 @@ const { baseUri } = require('./_constants')
 const { app } = require('../ecomplus-market.json')
 const storeApp = require('../assets/application.json')
 
+if (!storeApp.version_date) {
+  storeApp.version_date = new Date().toISOString()
+}
+
 app.id = storeApp.app_id
 app.store_app = storeApp
 ;['title', 'slug'].forEach(field => {
