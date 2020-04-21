@@ -15,15 +15,17 @@
 2. Enter the project, go to _databases_ page (on menu) and _create database_:
     - Just bypass with default production mode and rules;
 
-3. Get your Firebase token from CLI:
+3. Firebase free plan doesn't support sending external HTTP requests, so you'll need to upgrade to _Blaze_ (on demand) plan;
+
+4. Get your Firebase token from CLI:
 ```bash
 npm install -g firebase-tools
 firebase login:ci
 ```
 
-4. [Use this template](https://github.com/ecomplus/application-starter/generate) to generate a new repository for your application;
+5. [Use this template](https://github.com/ecomplus/application-starter/generate) to generate a new repository for your application;
 
-5. Go to your repository _settings_ tab and set the following _secrets_:
+6. Go to your repository _settings_ tab and set the following _secrets_:
     - `FIREBASE_PROJECT_ID`: The ID (name) of your Firebase project;
     - `FIREBASE_TOKEN`: The token generated with `firebase-tools`;
     - `SERVER_OPERATOR_TOKEN`: Random (at least 16 bytes) admin token generated from CLI or [here](https://randomkeygen.com/);
