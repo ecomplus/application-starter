@@ -16,7 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     if: |
       github.event.head_commit.message != 'Initial commit' &&
-      !startsWith(github.event.head_commit.message, 'Merge branch') &&
       !contains(github.event.head_commit.message, '[skip ci]')
 
     steps:
@@ -52,7 +51,7 @@ jobs:
         run: npm run deploy
 
   update-app-json:
-    name: Update application body
+    name: Update application and publish
     runs-on: ubuntu-latest
     needs: deploy
 
@@ -74,15 +73,49 @@ jobs:
           wget -O ./assets/application.json \
             https://us-central1-$FIREBASE_PROJECT_ID.cloudfunctions.net/app/
 
-      - name: Commit local file changes
+      - name: Config Git and check diff
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
           git add ./assets/
-          git diff-index --quiet HEAD || git commit -m 'chore(assets): update application body [skip ci]'
+          (git diff-index --quiet HEAD && echo "::set-output name=diff::0") || echo "::set-output name=diff::1"
+        id: git_diff
+
+      - name: Commit local file changes
+        if: steps.git_diff.outputs.diff == 1
+        run: |
+          git commit -m 'chore(assets): update application body [skip ci]'
 
       - name: Push changes
+        if: steps.git_diff.outputs.diff == 1
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: master
+
+      - name: Setup Node
+        if: steps.git_diff.outputs.diff == 1
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Cache dependencies
+        if: steps.git_diff.outputs.diff == 1
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        if: steps.git_diff.outputs.diff == 1
+        run: npm ci --only=production
+
+      - name: Run publish script
+        if: steps.git_diff.outputs.diff == 1
+        env:
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          MARKET_TOKEN: ${{ secrets.MARKET_TOKEN }}
+        run: "npm run publish:market"
