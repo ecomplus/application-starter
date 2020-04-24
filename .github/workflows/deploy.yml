@@ -93,15 +93,23 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: master
 
+      - name: Check stable package version
+        env:
+          APP_CHANGED: ${{ steps.git_diff.outputs.diff }}
+        run: |
+          CAN_PUBLISH=$(node -p "!(/-/.test(require('./package.json').version)) && process.env.APP_CHANGED")
+          echo "::set-output name=publish::$CAN_PUBLISH"
+        id: pkg_version
+
       - name: Setup Node
-        if: steps.git_diff.outputs.diff == 1
+        if: steps.pkg_version.outputs.publish == 1
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org/'
 
       - name: Cache dependencies
-        if: steps.git_diff.outputs.diff == 1
+        if: steps.pkg_version.outputs.publish == 1
         uses: actions/cache@v1
         with:
           path: ~/.npm
@@ -110,11 +118,11 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install dependencies
-        if: steps.git_diff.outputs.diff == 1
+        if: steps.pkg_version.outputs.publish == 1
         run: npm ci --only=production
 
       - name: Run publish script
-        if: steps.git_diff.outputs.diff == 1
+        if: steps.pkg_version.outputs.publish == 1
         env:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
           MARKET_TOKEN: ${{ secrets.MARKET_TOKEN }}
