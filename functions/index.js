@@ -104,7 +104,7 @@ recursiveReadDir(routesDir).filter(filepath => filepath.endsWith('.js')).forEach
       router[method](filename, (req, res) => {
         // setup ecomAuth client with Firestore instance
         process.env.ECOM_AUTH_DEBUG = 'true'
-        setup(null, true, admin.firestore()).then(appSdk => {
+        setup(null, filename.indexOf('refresh-tokens') === -1, admin.firestore()).then(appSdk => {
           middleware({ appSdk, admin }, req, res)
         }).catch(err => {
           console.error(err)
