@@ -3,10 +3,15 @@ name: Call refresh tokens
 on:
   schedule:
     - cron: '25 7,15,23 * * *'
+  push:
+    branches:
+      - master
+    paths:
+      - 'assets/refresh-tokens'
 
 jobs:
   call-refresh-tokens:
-    name: Fetch refresh tokens on cloud function 
+    name: Fetch refresh tokens on cloud function
     runs-on: ubuntu-latest
 
     steps:
