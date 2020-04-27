@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - 'assets/**'
+      - 'assets/application.json'
       - 'ecomplus-market.json'
       - 'functions/public/description.md'
       - 'functions/public/icon.png'
