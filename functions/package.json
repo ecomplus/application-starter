@@ -13,10 +13,10 @@
     "node": "8"
   },
   "dependencies": {
-    "@ecomplus/application-sdk": "^1.11.13",
+    "@ecomplus/application-sdk": "^1.12.3",
     "express": "^4.17.1",
     "firebase-admin": "^8.12.1",
-    "firebase-functions": "^3.6.1"
+    "firebase-functions": "^3.6.2"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
