@@ -107,13 +107,8 @@ recursiveReadDir(routesDir).filter(filepath => filepath.endsWith('.js')).forEach
         // debug ecomAuth processes and ensure enable token updates by default
         process.env.ECOM_AUTH_DEBUG = 'true'
         process.env.ECOM_AUTH_UPDATE = 'enabled'
-        const isRefreshTokens = filename.startsWith('/ecom/refresh-tokens')
-        if (isRefreshTokens) {
-          console.log('Updating E-Com Plus access tokens')
-        }
-
         // setup ecomAuth client with Firestore instance
-        setup(null, !isRefreshTokens, admin.firestore()).then(appSdk => {
+        setup(null, true, admin.firestore()).then(appSdk => {
           middleware({ appSdk, admin }, req, res)
         }).catch(err => {
           console.error(err)
