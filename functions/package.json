@@ -13,7 +13,7 @@
     "node": "8"
   },
   "dependencies": {
-    "@ecomplus/application-sdk": "^21.0.0-firestore.1.12.4",
+    "@ecomplus/application-sdk": "^21.0.0-firestore.1.13.0",
     "express": "^4.17.1",
     "firebase-admin": "^8.12.1",
     "firebase-functions": "^3.6.2"
