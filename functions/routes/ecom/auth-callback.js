@@ -28,7 +28,7 @@ exports.post = ({ appSdk }, req, res) => {
       if (procedures.length) {
         return appSdk.getAuth(storeId, authenticationId).then(auth => {
           const { row, docRef } = auth
-          if (!row.settep_up) {
+          if (!row.setted_up) {
             console.log(`Try saving procedures for store #${storeId}`)
 
             // must save procedures once only
