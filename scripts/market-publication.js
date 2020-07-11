@@ -52,16 +52,22 @@ const req = https.request({
     Authorization: `Bearer ${MARKET_TOKEN}`
   }
 }, res => {
-  const { statusCode } = res
-  if (statusCode >= 200 && statusCode <= 204) {
-    console.log('Application updated')
-  } else {
-    console.error(new Error(`API request error with status ${statusCode}`))
-    process.exit(1)
-  }
+  const body = []
+  res.on('data', chunk => {
+    body.push(chunk)
+  })
 
-  res.on('data', d => {
-    process.stdout.write(d)
+  res.on('end', () => {
+    const { statusCode } = res
+    if (body.length) {
+      console.log('Response:', Buffer.concat(body).toString())
+    }
+    if (statusCode >= 200 && statusCode <= 204) {
+      console.log('Application updated')
+    } else {
+      console.error(new Error(`API request error with status ${statusCode}`))
+      process.exit(1)
+    }
   })
 })
 
