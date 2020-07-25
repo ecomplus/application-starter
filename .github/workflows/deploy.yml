@@ -127,3 +127,4 @@ jobs:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
           MARKET_TOKEN: ${{ secrets.MARKET_TOKEN }}
         run: "npm run publish:market"
+        continue-on-error: true
