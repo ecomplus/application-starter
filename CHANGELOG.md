@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-starter.16](https://github.com/ecomplus/application-starter/compare/v1.0.0-starter.15...v1.0.0-starter.16) (2020-11-05)
+
+
+### Bug Fixes
+
+* **deps:** add @google-cloud/firestore v4 as direct dep ([e79b789](https://github.com/ecomplus/application-starter/commit/e79b7899b26e900cccc06e71393838ecce3d2133))
+* **deps:** update all non-major dependencies ([#38](https://github.com/ecomplus/application-starter/issues/38)) ([37a3346](https://github.com/ecomplus/application-starter/commit/37a3346de56e7c2d17ab84e732c2211d4683be6d))
+* **deps:** update all non-major dependencies ([#41](https://github.com/ecomplus/application-starter/issues/41)) ([77b78ef](https://github.com/ecomplus/application-starter/commit/77b78efbc64bfa32719bcd79ba4ed8da2dc57582))
+* **deps:** update all non-major dependencies ([#48](https://github.com/ecomplus/application-starter/issues/48)) ([c0042d8](https://github.com/ecomplus/application-starter/commit/c0042d85f06315ffac6157f485a25fe1e0a13a01))
+* **deps:** update all non-major dependencies ([#49](https://github.com/ecomplus/application-starter/issues/49)) ([dc4d847](https://github.com/ecomplus/application-starter/commit/dc4d8477f05d3d4d9b83da21d42c5e394e931c82))
+* **deps:** update dependency firebase-admin to ^9.2.0 ([#47](https://github.com/ecomplus/application-starter/issues/47)) ([156714a](https://github.com/ecomplus/application-starter/commit/156714a9f3c0e71f28466efdb850874eaec283b6))
+* **refresh-tokens:** add scheduled cloud function to run update ([d338924](https://github.com/ecomplus/application-starter/commit/d33892474a8c0c07bab14791cf9c4417baca00d1))
+
 ## [1.0.0-starter.15](https://github.com/ecomplus/application-starter/compare/v1.0.0-starter.14...v1.0.0-starter.15) (2020-07-26)
 
 
