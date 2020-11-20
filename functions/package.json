@@ -16,7 +16,7 @@
     "@ecomplus/application-sdk": "^22.0.0-firestore.1.14.0",
     "@google-cloud/firestore": "^4.7.1",
     "express": "^4.17.1",
-    "firebase-admin": "^9.4.0",
+    "firebase-admin": "^9.4.1",
     "firebase-functions": "^3.11.0"
   },
   "devDependencies": {
