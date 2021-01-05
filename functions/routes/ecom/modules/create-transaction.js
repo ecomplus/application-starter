@@ -1,29 +1,27 @@
 exports.post = ({ appSdk, admin }, req, res) => {
   /**
-   * Requisições vindas dos módulos recebem um body hidratrado com dois objetos, `params` e application`.
-   * Em `application` está uma cópia do seu aplicativo instalado pelo lojista, inclusive as propriedades `data` e `hidden_data`.
-   * JSON Schema do módulo create_transaction
+   * Requests coming from the modules receive a hydrated body with two objects, `params` and application`.
+   * In `application` is a copy of your application installed by the merchant, including the properties` data` and `hidden_data`.
+   * JSON Schema of the create_transaction module
    * `params`: https://apx-mods.e-com.plus/api/v1/create_transaction/schema.json?store_id=100
    * `response`: https://apx-mods.e-com.plus/api/v1/create_transaction/response_schema.json?store_id=100
    */
   const { params, application } = req.body
-
-  /**
-   * storeId é tratado em @/bin/web.js, e está disponível em `req.storeId` em todas as requisições feitas em resources que comecem com `/ecom/*`.
-   * Mas também pode ser acessada em req.get('x-store-id') ou req.headers['x-store-id']
-   */
   const { storeId } = req
 
-  // Mescla configurações do lojista no app instalado
+  // merge all app options configured by merchant
   const appData = Object.assign({}, application.data, application.hidden_data)
 
-  // https://apx-mods.e-com.plus/api/v1/create_transaction/response_schema.json?store_id=100
+  // payment `transaction` object
+  // required in `response` object and must follow schema: https://apx-mods.e-com.plus/api/v1/create_transaction/response_schema.json?store_id=100
   const transaction = {}
+
+  // Indicates whether the buyer should be redirected to payment link right after checkout
   let redirectToPayment = false
 
   /**
-   * Realize sua operação aqui conforme o metódo de pagamento escolhido.
-   * Faça chamada em algum web service externo ou apenas preencha a propriedade `transaction` conforme a referência do módulo.
+   * Do the stuff here, call external web service or just fill the `transaction` object
+   * according to the by the chosen payment_method.
    * `response`: https://apx-mods.e-com.plus/api/v1/create_transaction/response_schema.json?store_id=100
    */
   switch (params.payment_method.code) {
@@ -34,13 +32,14 @@ exports.post = ({ appSdk, admin }, req, res) => {
       //  
       break;
     case 'online_debit':
-      redirectToPayment = true
-      //
+      // redirectToPayment = true
       break;
     default:
       break;
   }
 
+  // setup basic required response object
+  // must follow schema : https://apx-mods.e-com.plus/api/v1/create_transaction/response_schema.json?store_id=100
   const response = {
     redirect_to_payment: redirectToPayment,
     transaction
