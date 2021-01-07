@@ -36,7 +36,7 @@
   "homepage": "https://github.com/ecomplus/application-starter#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "firebase-tools": "^8.20.0",
+    "firebase-tools": "^9.1.1",
     "uglify-js": "^3.12.2"
   },
   "devDependencies": {
