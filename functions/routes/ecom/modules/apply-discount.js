@@ -2,7 +2,7 @@ exports.post = ({ appSdk, admin }, req, res) => {
     /**
    * Requests coming from the modules receive a hydrated body with two objects, `params` and application`.
    * In `application` is a copy of your application installed by the merchant, including the properties` data` and `hidden_data`.
-   * JSON Schema of the apply_discount module
+   * JSON Schema reference for the Apply Discount module objects:
    * `params`: https://apx-mods.e-com.plus/api/v1/apply_discount/schema.json?store_id=100
    * `response`: https://apx-mods.e-com.plus/api/v1/apply_discount/response_schema.json?store_id=100
    */
