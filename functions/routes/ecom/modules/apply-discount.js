@@ -6,6 +6,7 @@ exports.post = ({ appSdk, admin }, req, res) => {
    * `params`: https://apx-mods.e-com.plus/api/v1/apply_discount/schema.json?store_id=100
    * `response`: https://apx-mods.e-com.plus/api/v1/apply_discount/response_schema.json?store_id=100
    */
+
   const { params, application } = req.body
   const { storeId } = req
 
