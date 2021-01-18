@@ -1,7 +1,8 @@
 exports.post = ({ appSdk, admin }, req, res) => {
   /**
    * Requests coming from the modules receive a hydrated body with two objects, `params` and application`.
-   * In `application` is a copy of your application installed by the merchant, including the properties` data` and `hidden_data`.
+   * `application` is a copy of your app installed by the merchant,
+   * including the properties `data` and `hidden_data` with admin settings configured values.
    * JSON Schema of the create_transaction module
    * `params`: https://apx-mods.e-com.plus/api/v1/create_transaction/schema.json?store_id=100
    * `response`: https://apx-mods.e-com.plus/api/v1/create_transaction/response_schema.json?store_id=100
