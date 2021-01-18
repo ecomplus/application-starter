@@ -14,7 +14,6 @@ exports.post = ({ appSdk, admin }, req, res) => {
   const appData = Object.assign({}, application.data, application.hidden_data)
 
   // setup basic required response object
-  // Must follow schema: https://apx-mods.e-com.plus/api/v1/apply_discount/response_schema.json?store_id=100
   const response = {
     discount_rule: {}
   }
