@@ -20,5 +20,6 @@ exports.post = ({ appSdk, admin }, req, res) => {
   }
 
   /* DO THE STUFF HERE TO FILL RESPONSE OBJECT WITH DISCOUNT OPTIONS */
+
   res.send(response)
 }
