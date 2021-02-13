@@ -70,6 +70,7 @@ jobs:
         env:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
         run: |
+          sleep 20
           wget -O ./assets/application.json \
             https://us-central1-$FIREBASE_PROJECT_ID.cloudfunctions.net/app/
 
