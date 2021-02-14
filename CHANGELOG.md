@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-starter.17](https://github.com/ecomplus/application-starter/compare/v1.0.0-starter.16...v1.0.0-starter.17) (2021-02-14)
+
+
+### Features
+
+* **modules:** start examples and mocks for discounts and payment modules ([#66](https://github.com/ecomplus/application-starter/issues/66)) ([ec388a8](https://github.com/ecomplus/application-starter/commit/ec388a8cf47603fd15c448d2aae53623cd870c62))
+* **update-app-data:** setup commum updateAppData method to store api lib ([888c28f](https://github.com/ecomplus/application-starter/commit/888c28fb64ccab6c2375451c12fffa5955fe277a))
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#53](https://github.com/ecomplus/application-starter/issues/53)) ([d8b6bf3](https://github.com/ecomplus/application-starter/commit/d8b6bf31f48aa06a7352eb7bf8df52af9e8bdc3a))
+* **deps:** update all non-major dependencies ([#54](https://github.com/ecomplus/application-starter/issues/54)) ([46bbafd](https://github.com/ecomplus/application-starter/commit/46bbafd363ddff88b5dc91f858ddc98cf648d232))
+* **deps:** update all non-major dependencies ([#55](https://github.com/ecomplus/application-starter/issues/55)) ([470d6ed](https://github.com/ecomplus/application-starter/commit/470d6ed31ea569fa5b19c26dca29b7dcd8c659c9))
+* **deps:** update all non-major dependencies ([#56](https://github.com/ecomplus/application-starter/issues/56)) ([a2382fc](https://github.com/ecomplus/application-starter/commit/a2382fc57a80eacf10aa7b1a468780aa9ca28803))
+* **deps:** update all non-major dependencies ([#58](https://github.com/ecomplus/application-starter/issues/58)) ([bf4c575](https://github.com/ecomplus/application-starter/commit/bf4c575651ad99ffd6acbace95dc1f5feb419137))
+* **deps:** update all non-major dependencies ([#59](https://github.com/ecomplus/application-starter/issues/59)) ([e5545d7](https://github.com/ecomplus/application-starter/commit/e5545d72ad6e2f720f2d12db6b75c7641feba7a2))
+* **deps:** update all non-major dependencies ([#68](https://github.com/ecomplus/application-starter/issues/68)) ([40f8c6f](https://github.com/ecomplus/application-starter/commit/40f8c6fa598848a5a53f6b69ba3614e6734801cc))
+* **deps:** update all non-major dependencies ([#69](https://github.com/ecomplus/application-starter/issues/69)) ([c01a26b](https://github.com/ecomplus/application-starter/commit/c01a26b5dd94812ca7bc6f317fdcc3074a0ce1a0))
+* **deps:** update all non-major dependencies ([#70](https://github.com/ecomplus/application-starter/issues/70)) ([712fdc3](https://github.com/ecomplus/application-starter/commit/712fdc348df22de0825494f92a7696e20fefdf5d))
+* **deps:** update dependency firebase-tools to ^9.2.0 ([#65](https://github.com/ecomplus/application-starter/issues/65)) ([eb84885](https://github.com/ecomplus/application-starter/commit/eb848859e7c477d52f1ad2e4b4e70589298acccc))
+* **deps:** update dependency firebase-tools to v9 ([#61](https://github.com/ecomplus/application-starter/issues/61)) ([dffdf35](https://github.com/ecomplus/application-starter/commit/dffdf351a41f49b717b6316d351fe53670d5452e))
+
 ## [1.0.0-starter.16](https://github.com/ecomplus/application-starter/compare/v1.0.0-starter.15...v1.0.0-starter.16) (2020-11-05)
 
 
