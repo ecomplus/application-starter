@@ -1,41 +1,48 @@
 exports.post = ({ appSdk }, req, res) => {
   /**
-   * Requests coming from the modules receive a hydrated body with two objects, `params` and application`.
-   * In `application` is a copy of your application installed by the merchant, including the properties` data` and `hidden_data`.
-   * JSON Schema of the list_payments module
+   * Requests coming from Modules API have two object properties on body: `params` and `application`.
+   * `application` is a copy of your app installed by the merchant,
+   * including the properties `data` and `hidden_data` with admin settings configured values.
+   * JSON Schema reference for the List Payments module objects:
    * `params`: https://apx-mods.e-com.plus/api/v1/list_payments/schema.json?store_id=100
    * `response`: https://apx-mods.e-com.plus/api/v1/list_payments/response_schema.json?store_id=100
+   *
+   * Examples in published apps:
+   * https://github.com/ecomplus/app-pagarme/blob/master/functions/routes/ecom/modules/list-payments.js
+   * https://github.com/ecomplus/app-custom-payment/blob/master/functions/routes/ecom/modules/list-payments.js
    */
+
   const { params, application } = req.body
   const { storeId } = req
-
-  // merge all app options configured by merchant
-  const appData = Object.assign({}, application.data, application.hidden_data)
-
   // setup basic required response object
-  // Must follow schema: https://apx-mods.e-com.plus/api/v1/list_payments/response_schema.json?store_id=100
   const response = {
     payment_gateways: []
   }
+  // merge all app options configured by merchant
+  const appData = Object.assign({}, application.data, application.hidden_data)
 
   /* DO THE STUFF HERE TO FILL RESPONSE OBJECT WITH PAYMENT GATEWAYS */
-  /* 
-    // eg;
-    response.payment_gateways.push({
-      intermediator: {
-        code: 'paupay',
-        link: 'https://www.paupay.com.br',
-        name: 'paupay'
-      },
-      payment_url: 'https://www.paupay.com.br/',
-      type: 'payment',
-      payment_method: {
-        code: 'banking_billet',
-        name: 'Boleto Bancário'
-      },
-      label: 'Boleto Bancário',
-      expiration_date: appData.banking_billet.expiration_date || 14
-    })
+
+  /**
+   * Sample snippets:
+
+  // add new payment method option
+  response.payment_gateways.push({
+    intermediator: {
+      code: 'paupay',
+      link: 'https://www.palpay.com.br',
+      name: 'paupay'
+    },
+    payment_url: 'https://www.palpay.com.br/',
+    type: 'payment',
+    payment_method: {
+      code: 'banking_billet',
+      name: 'Boleto Bancário'
+    },
+    label: 'Boleto Bancário',
+    expiration_date: appData.expiration_date || 14
+  })
+
   */
 
   res.send(response)
