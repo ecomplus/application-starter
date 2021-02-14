@@ -41,8 +41,12 @@ server.use((req, res, next) => {
     }
 
     if (process.env.NODE_ENV !== 'development') {
+      if (req.query.store_access_token) {
+        // check authentication access token with Store API
+        // GET /(auth).json
+      }
       // check for operator token
-      if (operatorToken !== req.get('x-operator-token')) {
+      if (operatorToken !== (req.get('x-operator-token') || req.query.operator_token)) {
         // last check for IP address from E-Com Plus servers
         const clientIp = req.get('x-forwarded-for') || req.connection.remoteAddress
         if (ecomServerIps.indexOf(clientIp) === -1) {
@@ -133,7 +137,7 @@ exports[functionName] = functions.https.onRequest(server)
 console.log(`-- Starting '${app.title}' E-Com Plus app with Function '${functionName}'`)
 
 // schedule update tokens job
-const cron = '25 1,9,17 * * *'
+const cron = '25 */3 * * *'
 exports.updateTokens = functions.pubsub.schedule(cron).onRun(() => {
   return prepareAppSdk().then(appSdk => {
     return appSdk.updateTokens()
