@@ -4,5 +4,9 @@
       "npm --prefix \"$RESOURCE_DIR\" run"
     ],
     "source": "functions"
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
   }
 }
