@@ -45,10 +45,5 @@
     "husky": "^6.0.0",
     "standard": "^16.0.3",
     "standard-version": "^9.1.1"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   }
 }
