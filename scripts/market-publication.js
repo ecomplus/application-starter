@@ -26,12 +26,12 @@ app.store_app = storeApp
   }
 })
 
-const dirPublic = path.resolve(__dirname, '../functions/public')
-if (fs.existsSync(path.resolve(dirPublic, 'icon.png'))) {
+const dirHosting = path.resolve(__dirname, '../hosting')
+if (fs.existsSync(path.resolve(dirHosting, 'icon.png'))) {
   app.icon = `${baseUri}icon.png`
 }
 try {
-  app.description = fs.readFileSync(path.resolve(dirPublic, 'description.md'), 'utf8')
+  app.description = fs.readFileSync(path.resolve(dirHosting, 'description.md'), 'utf8')
 } catch (e) {
   app.description = `
 # ${app.title}

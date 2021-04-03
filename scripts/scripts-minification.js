@@ -2,10 +2,10 @@ const path = require('path')
 const fs = require('fs')
 const uglifyJS = require('uglify-js')
 
-const publicPath = path.resolve(__dirname, '../functions/public')
-fs.readdirSync(publicPath).forEach(file => {
+const hostingPath = path.resolve(__dirname, '../hosting')
+fs.readdirSync(hostingPath).forEach(file => {
   if (file.endsWith('.js') && !file.endsWith('.min.js')) {
-    const filePath = path.resolve(publicPath, file)
+    const filePath = path.resolve(hostingPath, file)
     if (filePath) {
       const minify = uglifyJS.minify(fs.readFileSync(filePath, 'utf8'))
       if (minify.code) {
