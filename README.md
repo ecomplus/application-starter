@@ -12,7 +12,7 @@
     - Analytics is not needed;
     - Set a nice project name (ID) and remember it;
 
-2. Enter the project, go to _databases_ page (on menu) and _create database_:
+2. Enter the project, go to _Firestore_ page (on menu) and _create database_:
     - Just bypass with default production mode and rules;
 
 3. Firebase free plan doesn't support sending external HTTP requests, so you'll need to upgrade to _Blaze_ (on demand) plan;
@@ -143,6 +143,8 @@ npm i
 cd functions
 npm i
 ```
+
+> Due to our GitHub Actions workflows, you probably don't need and we don't recommend to deploy locally because it may vary with your environment, if you don't have a special motivation to run it on CLI, just commit, push to GitHub and trust on [CI](#continuous-integration) :smile:
 
 Then you can call `npm run deploy` locally getting configuration from `.env` file on project root. You can also set a different `FIREBASE_PROJECT_ID` locally for test purpose only.
 
