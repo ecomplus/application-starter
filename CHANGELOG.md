@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-starter.18](https://github.com/ecomplus/application-starter/compare/v1.0.0-starter.17...v1.0.0-starter.18) (2021-04-03)
+
+
+### Features
+
+* **functions:** using node v12 engine ([96a9ed6](https://github.com/ecomplus/application-starter/commit/96a9ed612555798de9afc21ebd3895bb7fad3ab3))
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#73](https://github.com/ecomplus/application-starter/issues/73)) ([c90e4bd](https://github.com/ecomplus/application-starter/commit/c90e4bd78172d6736c84dfa39294f411ab81fa19))
+* **deps:** update all non-major dependencies ([#75](https://github.com/ecomplus/application-starter/issues/75)) ([37454b3](https://github.com/ecomplus/application-starter/commit/37454b3516e3471d8458e90f3bad09626e545794))
+
 ## [1.0.0-starter.17](https://github.com/ecomplus/application-starter/compare/v1.0.0-starter.16...v1.0.0-starter.17) (2021-02-14)
 
 
