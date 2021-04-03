@@ -1,3 +1,0 @@
-# My Awesome E-Com Plus App
-
-Somethings about my app and what it does...
