@@ -16,3 +16,5 @@ if (!project) {
 exports.project = project
 
 exports.baseUri = SERVER_BASE_URI || `https://us-central1-${project}.cloudfunctions.net/app/`
+
+exports.hostingUri = `https://${project}.web.app/`
