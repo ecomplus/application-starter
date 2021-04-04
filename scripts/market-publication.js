@@ -10,7 +10,7 @@ if (!MARKET_TOKEN) {
 const path = require('path')
 const fs = require('fs')
 const https = require('https')
-const { baseUri } = require('./_constants')
+const { hostingUri } = require('./_constants')
 const { app } = require('../ecomplus-market.json')
 const storeApp = require('../assets/application.json')
 
@@ -28,7 +28,7 @@ app.store_app = storeApp
 
 const dirHosting = path.resolve(__dirname, '../hosting')
 if (fs.existsSync(path.resolve(dirHosting, 'icon.png'))) {
-  app.icon = `${baseUri}icon.png`
+  app.icon = `${hostingUri}icon.png`
 }
 try {
   app.description = fs.readFileSync(path.resolve(dirHosting, 'description.md'), 'utf8')
