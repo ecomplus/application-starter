@@ -1,0 +1,2 @@
+Additional (not required on functions) static files for publication on CDN.
+JS scripts here will also be automatically minified and published in both `{name}.js` and `dist/{name}.min.js` formats.
