@@ -1,4 +1,5 @@
-functions/public/*.min.js
+dist/
+.runtimeconfig.json
 
 # Logs
 logs
