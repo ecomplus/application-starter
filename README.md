@@ -106,8 +106,8 @@ You may want to use [`appSdk`](https://github.com/ecomplus/application-sdk) to m
 You may want to make your app public and available to install within E-Com Plus dashboard, to do this:
 
 - Edit [`ecomplus-market.json`](ecomplus-market.json) to set a short description and category between _shipping_, _sales_, _tools_, _customer-service_, _marketing_, _inventory_ or _product-sourcing_;
-- Overwrite the default PNG icon at [`functions/public/icon.png`](functions/public/icon.png);
-- Write a good markdown description for the app at [`functions/public/description.md`](functions/public/description.md);
+- Overwrite the default PNG icon at [`hosting/icon.png`](hosting/icon.png);
+- Write a good markdown description for the app at [`hosting/description.md`](hosting/description.md);
 - Take note about [publication](#publication);
 
 > If you are not yet a registered partner, start by filling out [this form](https://docs.google.com/forms/d/e/1FAIpQLSfd8uUsMG6N_rSFi2blGuk3Rfqi_BPp6fxschkmkdhEBVDsyw/viewform) and wait a little for our response :handshake:
@@ -134,6 +134,8 @@ If `MARKET_TOKEN` secret is set, the app will be **automatically published to [M
 
 ## Developing and testing locally
 
+> :loudspeaker: **On Windows you must use [Git Bash](https://git-scm.com/download/win)** to execute the commands below.
+
 Setup the project normally by cloning your repository and installing npm dependencies:
 
 ```bash
@@ -144,11 +146,15 @@ cd functions
 npm i
 ```
 
-> Due to our GitHub Actions workflows, you probably don't need and we don't recommend to deploy locally because it may vary with your environment, if you don't have a special motivation to run it on CLI, just commit, push to GitHub and trust on [CI](#continuous-integration) :smile:
+> Due to our GitHub Actions workflows, **you probably don't need and we don't recommend to deploy locally** because it may vary with your environment, if you don't have a special motivation to run it on CLI, just commit, push to GitHub and trust on [CI](#continuous-integration) :smile:
 
 Then you can call `npm run deploy` locally getting configuration from `.env` file on project root. You can also set a different `FIREBASE_PROJECT_ID` locally for test purpose only.
 
 When you're done, you can publish the app by running `npm run publish:market`.
+
+### Execute functions locally
+
+After deploying the project at least once (may be out of date with your local source) you can emulate Cloud Functions by running `npm run serve` from repository root.
 
 ### Firebase tools
 
