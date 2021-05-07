@@ -3,7 +3,7 @@ const { GCLOUD_PROJECT, FIREBASE_CONFIG, FUNCTION_REGION } = process.env
 const { pkg, server } = require('firebase-functions').config()
 
 let projectId = GCLOUD_PROJECT
-if (FIREBASE_CONFIG) {
+if (!projectId && FIREBASE_CONFIG) {
   projectId = JSON.parse(FIREBASE_CONFIG).projectId
 }
 const region = FUNCTION_REGION || 'us-central1'
