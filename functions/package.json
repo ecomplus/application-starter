@@ -12,8 +12,8 @@
     "node": "12"
   },
   "dependencies": {
-    "@ecomplus/application-sdk": "^22.0.0-firestore.1.14.8",
-    "@google-cloud/firestore": "^4.10.1",
+    "@ecomplus/application-sdk": "^22.0.0-firestore.1.14.9",
+    "@google-cloud/firestore": "^4.11.0",
     "express": "^4.17.1",
     "firebase-admin": "^9.7.0",
     "firebase-functions": "^3.13.2"
