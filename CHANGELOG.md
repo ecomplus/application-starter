@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-starter.21](https://github.com/ecomplus/application-starter/compare/v1.0.0-starter.20...v1.0.0-starter.21) (2021-05-07)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/application-sdk to v1.14.9 ([1df5166](https://github.com/ecomplus/application-starter/commit/1df51665bf4ee0baa9edd949d5af942c5a8e26ff))
+* **env:** try both GCP_PROJECT and GCLOUD_PROJECT (obsolete) ([9e53963](https://github.com/ecomplus/application-starter/commit/9e53963aa95d79b48fe63528f3f41947f619e9e9))
+
 ## [1.0.0-starter.20](https://github.com/ecomplus/application-starter/compare/v1.0.0-starter.19...v1.0.0-starter.20) (2021-04-30)
 
 ## [1.0.0-starter.19](https://github.com/ecomplus/application-starter/compare/v1.0.0-starter.18...v1.0.0-starter.19) (2021-04-05)
