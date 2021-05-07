@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-starter.22](https://github.com/ecomplus/application-starter/compare/v1.0.0-starter.21...v1.0.0-starter.22) (2021-05-07)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/application-sdk to v1.14.10 ([c6f25f2](https://github.com/ecomplus/application-starter/commit/c6f25f233b1870fd27240582ebb080217d59d847))
+* **env:** try FIREBASE_CONFIG json when GCLOUD_PROJECT unset ([92cfb16](https://github.com/ecomplus/application-starter/commit/92cfb166a59ef05f67a005fa6ad3b49c69fcb222))
+
 ## [1.0.0-starter.21](https://github.com/ecomplus/application-starter/compare/v1.0.0-starter.20...v1.0.0-starter.21) (2021-05-07)
 
 

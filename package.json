@@ -1,7 +1,7 @@
 {
   "name": "@ecomplus/application-starter",
   "private": true,
-  "version": "1.0.0-starter.21",
+  "version": "1.0.0-starter.22",
   "description": "Boilerplate for E-Com Plus apps with Firebase Cloud Functions",
   "main": "functions/index.js",
   "scripts": {
