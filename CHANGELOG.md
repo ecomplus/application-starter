@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-starter.23](https://github.com/ecomplus/application-starter/compare/v1.0.0-starter.22...v1.0.0-starter.23) (2021-06-15)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/application-sdk to v1.14.11 ([c7d8cd0](https://github.com/ecomplus/application-starter/commit/c7d8cd021dba0a9b477e234c97e1702f140a8aa8))
+* **deps:** update dependency dotenv to v10 ([#90](https://github.com/ecomplus/application-starter/issues/90)) ([47104be](https://github.com/ecomplus/application-starter/commit/47104bef16fd9bb89979d86af709948f156b05a1))
+
 ## [1.0.0-starter.22](https://github.com/ecomplus/application-starter/compare/v1.0.0-starter.21...v1.0.0-starter.22) (2021-05-07)
 
 
