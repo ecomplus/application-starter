@@ -40,6 +40,12 @@ exports.post = ({ appSdk }, req, res) => {
       if (err.name === SKIP_TRIGGER_NAME) {
         // trigger ignored by app configuration
         res.send(ECHO_SKIP)
+      } else if (err.appWithoutAuth === true) {
+        const msg = `Webhook for ${storeId} unhandled with no authentication found`
+        const error = new Error(msg)
+        error.trigger = JSON.stringify(trigger)
+        console.error(error)
+        res.status(412).send(msg)
       } else {
         // console.error(err)
         // request to Store API with error response
