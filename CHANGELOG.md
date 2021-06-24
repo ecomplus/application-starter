@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-starter.24](https://github.com/ecomplus/application-starter/compare/v1.0.0-starter.23...v1.0.0-starter.24) (2021-06-24)
+
+
+### Bug Fixes
+
+* **deps:** update functions non-major dependencies ([dca0a11](https://github.com/ecomplus/application-starter/commit/dca0a113a2da8ae29054d1f4809b83518051cd68))
+* **webhooks:** handle auth not found error to prevent webhook retries ([5082a7d](https://github.com/ecomplus/application-starter/commit/5082a7d0a0c5fe53b9529553c14f7e7be16ebf1f))
+
 ## [1.0.0-starter.23](https://github.com/ecomplus/application-starter/compare/v1.0.0-starter.22...v1.0.0-starter.23) (2021-06-15)
 
 
