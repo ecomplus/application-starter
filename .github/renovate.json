@@ -1,6 +1,5 @@
 {
   "extends": [
-    "github>ecomclub/renovate-config"
-  ],
-  "schedule": "before 3am on the first day of the month"
+    "github>ecomclub/renovate-config:app"
+  ]
 }
