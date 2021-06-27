@@ -135,6 +135,40 @@ const app = {
      * You can also set any other valid resource/subresource combination.
      * Ref.: https://developers.e-com.plus/docs/api/#/store/
      */
+  },
+  
+  admin_settings: {
+    /**
+     * JSON schema based fields to be configured by merchant and saved to app `data` / `hidden_data`, such as:
+     
+     webhook_uri: {
+       schema: {
+         type: 'string',
+         maxLength: 255,
+         format: 'uri',
+         title: 'Notifications URI',
+         description: 'Unique notifications URI available on your Custom App dashboard'
+       },
+       hide: true
+     },
+     token: {
+       schema: {
+         type: 'string',
+         maxLength: 50,
+         title: 'App token'
+       },
+       hide: true
+     },
+     opt_in: {
+       schema: {
+         type: 'boolean',
+         default: false,
+         title: 'Some config option'
+       },
+       hide: false
+     },
+     
+     */
   }
 }
 
