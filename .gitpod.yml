@@ -1,0 +1,9 @@
+image:
+  file: .gitpod.Dockerfile
+tasks:
+  - init: npm i
+vscode:
+  extensions:
+    - standard.vscode-standard
+    - atishay-jain.all-autocomplete
+    - xabikos.javascriptsnippets
