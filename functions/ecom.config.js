@@ -136,11 +136,11 @@ const app = {
      * Ref.: https://developers.e-com.plus/docs/api/#/store/
      */
   },
-  
+
   admin_settings: {
     /**
      * JSON schema based fields to be configured by merchant and saved to app `data` / `hidden_data`, such as:
-     
+
      webhook_uri: {
        schema: {
          type: 'string',
@@ -167,7 +167,7 @@ const app = {
        },
        hide: false
      },
-     
+
      */
   }
 }
@@ -194,7 +194,8 @@ procedures.push({
       action: 'create',
     },
 
-    // Receive notifications when order financial/fulfillment status changes:
+    // Receive notifications when order financial/fulfillment status are set or changed:
+    // Obs.: you probably SHOULD NOT enable the orders triggers below and the one above (create) together.
     {
       resource: 'orders',
       field: 'financial_status',
