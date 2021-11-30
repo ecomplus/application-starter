@@ -7,10 +7,11 @@ on:
     paths:
       - 'assets/application.json'
       - 'ecomplus-market.json'
-      - 'functions/public/description.md'
-      - 'functions/public/icon.png'
+      - 'hosting/description.md'
+      - 'hosting/icon.png'
       - 'scripts/_constants.js'
       - 'scripts/market-publication.js'
+      - '.github/workflows/publish.yml'
 
 jobs:
   pulish:
