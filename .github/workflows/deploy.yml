@@ -9,6 +9,7 @@ on:
       - 'scripts/_constants.js'
       - 'scripts/firebase-deploy.js'
       - '*.json'
+      - '.github/deploy'
 
 jobs:
   deploy:
