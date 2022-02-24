@@ -37,7 +37,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install root dependencies
-        run: npm ci --only=production
+        run: npm ci --only=production --ignore-scripts
 
       - name: Install functions dependencies
         run: cd functions && npm ci --only=production --no-optional && cd ..
@@ -120,9 +120,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install dependencies
+      - name: Install root dependencies
         if: steps.pkg_version.outputs.publish == 1
-        run: npm ci --only=production
+        run: npm ci --only=production --ignore-scripts
 
       - name: Run publish script
         if: steps.pkg_version.outputs.publish == 1

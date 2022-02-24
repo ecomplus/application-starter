@@ -38,7 +38,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install root dependencies
-        run: npm ci --only=production
+        run: npm ci --only=production --ignore-scripts
 
       - name: Run publish script
         env:
