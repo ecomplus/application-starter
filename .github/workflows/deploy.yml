@@ -54,6 +54,7 @@ jobs:
     name: Update application and publish
     runs-on: ubuntu-latest
     needs: deploy
+    if: github.repository != 'ecomplus/application-starter'
 
     steps:
       - name: Checkout
