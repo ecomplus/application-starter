@@ -5,6 +5,7 @@
   "description": "Boilerplate for E-Com Plus apps with Firebase Cloud Functions",
   "main": "functions/index.js",
   "scripts": {
+    "prepare": "husky install",
     "serve": "sh ./serve.sh",
     "deploy": "NODE_ENV=production node ./scripts/firebase-deploy.js",
     "release": "standard-version",
