@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '16.x'
 
@@ -106,7 +106,7 @@ jobs:
 
       - name: Setup Node
         if: steps.pkg_version.outputs.publish == 1
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org/'
