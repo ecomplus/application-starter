@@ -19,7 +19,7 @@
 
 4. Get your Firebase token from CLI:
 ```bash
-npx firebase login:ci
+npx firebase-tools login:ci
 ```
 ```bash
 # OR with firebase-tools installed globally
