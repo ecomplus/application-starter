@@ -15,7 +15,7 @@
     "@ecomplus/application-sdk": "^22.0.0-firestore.1.15.6",
     "express": "^4.17.3",
     "firebase-admin": "^10.0.2",
-    "firebase-functions": "^3.18.1"
+    "firebase-functions": "^3.19.0"
   },
   "private": true
 }
