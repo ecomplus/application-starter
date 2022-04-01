@@ -29,7 +29,7 @@ jobs:
           node-version: '16.x'
 
       - name: Cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -113,7 +113,7 @@ jobs:
 
       - name: Cache dependencies
         if: steps.pkg_version.outputs.publish == 1
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
