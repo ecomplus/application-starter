@@ -89,6 +89,10 @@ Endpoints for [E-Com Plus Mods API](https://developers.e-com.plus/modules-api/).
 
 > You should edit the respective ones for enabled modules (on `ecom.config.js`).
 
+##### For payment apps
+
+You should start from [`modules/list-payments.js`](functions/routes/ecom/modules/list-payments.js) and [`modules/create-transaction.js`](functions/routes/ecom/modules/create-transaction.js), enable both (uncomment) in [`ecom.config.js`](https://github.com/ecomplus/application-starter/blob/master/functions/ecom.config.js#L32-L43). Check [examples here](https://github.com/ecomplus/awesome#payments). Probably you will also need a [custom route](#custom-integration-scripts) to receive payment notifications (webhooks) and update order status, and maybe a client-side script to tokenize credit cards (as [this one](https://github.com/ecomplus/app-pagarme/blob/master/functions/public/onload-expression.js)).
+
 ### Additional Store API handlers
 
 If the app works with `admin_settings` (configuration), use [`getAppData`](functions/lib/store-api/get-app-data.js) to get the application `data`/`hidden_data` configured by merchant from dashboard through Store API ([Application Object](https://developers.e-com.plus/docs/api/#/store/applications/)).
