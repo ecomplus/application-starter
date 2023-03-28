@@ -91,7 +91,7 @@ Endpoints for [E-Com Plus Mods API](https://developers.e-com.plus/modules-api/).
 
 ##### For payment apps
 
-You should start from [`modules/list-payments.js`](functions/routes/ecom/modules/list-payments.js) and [`modules/create-transaction.js`](functions/routes/ecom/modules/create-transaction.js), enable both (uncomment) in [`ecom.config.js`](https://github.com/ecomplus/application-starter/blob/master/functions/ecom.config.js#L32-L43). Check [examples here](https://github.com/ecomplus/awesome#payments). Probably you will also need a [custom route](#custom-integration-scripts) to receive payment notifications (webhooks) and update order status, and maybe a client-side script to tokenize credit cards (as [this one](https://github.com/ecomplus/app-pagarme/blob/master/functions/public/onload-expression.js)).
+You should start from [`modules/list-payments.js`](functions/routes/ecom/modules/list-payments.js) and [`modules/create-transaction.js`](functions/routes/ecom/modules/create-transaction.js), enable both (uncomment) in [`ecom.config.js`](https://github.com/ecomplus/application-starter/blob/master/functions/ecom.config.js#L32-L43). Probably you will also need a [custom route](#custom-integration-scripts) to receive payment notifications (webhooks) and update order status, and maybe a client-side script to tokenize credit cards (as [this one](https://github.com/ecomplus/app-pagarme/blob/master/functions/public/onload-expression.js)). Check [examples here](https://github.com/ecomplus/awesome#payments).
 
 ### Additional Store API handlers
 
