@@ -17,7 +17,7 @@ jobs:
 
       - name: Release tag
         id: release_tag
-        uses: Akryum/release-tag@8eeb62bcf949a368763f4057c34e7eb834467122
+        uses: Akryum/release-tag@a45f9f6a7572682345b87927ea3aacf723225e0b
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
