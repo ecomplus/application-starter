@@ -9,7 +9,7 @@
     "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "16"
+    "node": "18"
   },
   "dependencies": {
     "@ecomplus/application-sdk": "^22.0.0-firestore.1.15.7",
