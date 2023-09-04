@@ -1,4 +1,4 @@
-/* eslint-disable comma-dangle, no-multi-spaces, key-spacing */
+/* eslint-disable comma-dangle, no-multi-spaces, key-spacing, quotes, quote-props */
 
 /**
  * Edit base E-Com Plus Application object here.
