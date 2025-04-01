@@ -26,7 +26,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: '20.19.0'
 
       - name: Cache dependencies
         uses: actions/cache@v4
@@ -108,7 +108,7 @@ jobs:
         if: steps.pkg_version.outputs.publish == 1
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: '20.19.0'
           registry-url: 'https://registry.npmjs.org/'
 
       - name: Cache dependencies
