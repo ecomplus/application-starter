@@ -41,8 +41,8 @@
     "uglify-js": "^3.19.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "commit-and-tag-version": "^9.6.0",
     "husky": "^8.0.3",
     "standard": "^17.1.2"
